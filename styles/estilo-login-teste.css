@@ -19,7 +19,8 @@
     --cor-branca: #FFFFFF;
     --cor-branca-cinza: #E7E5E4;
     --cor-cinza: #8F8881;
-    --cor-cinza-escuro: #D6D3D1;
+    --cor-cinza-escuro: #bfb6b0;
+    --cor-cinza-mais-escuro: #424241;
 
     --fonte-poppins: "Poppins", sans-serif;
     --fonte-montserrat: "Montserrat", sans-serif;
@@ -47,7 +48,7 @@ button {
 .login-sign {
     overflow: hidden;
     background-color: var(--cor-branca);
-    background: linear-gradient(to bottom, var(--cor-branca) 50%, var(--cor-branca-cinza) 100%);
+    background: linear-gradient(to bottom, var(--cor-branca) 75%, var(--cor-branca-cinza) 100%);
     border-radius: 1rem;
 
     display: flex;
@@ -71,8 +72,7 @@ button {
 
 /* Configurações gerais de elementos */
 .titulo {
-    margin-top: 2rem;
-    margin-bottom: 4.5rem;
+    margin-bottom: 4rem;
 
     font-family: var(--fonte-montserrat);
     font-weight: bold;
@@ -83,6 +83,8 @@ button {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+
+    border-bottom: solid var(--cor-cinza-mais-escuro) 0.0625rem;
 }
 
 .span {
@@ -90,20 +92,25 @@ button {
 
     transform-origin: top left;
     transform: translate(0.5rem, 2rem);
-    transition: transform 0.1s ease-in-out;
+    transition: transform 0.1s ease-in-out, color 0.1s ease-in-out;
 
     pointer-events: none;
 }
 
 .input {
     all: unset;
+    box-sizing: inherit;
     width: 100%;
     padding: 0.125rem 0.5rem;
 
-    border-bottom: solid var(--cor-texto-principal) 0.0625rem;
-
     font-size: 1rem;
     cursor: text;
+
+    transition: padding 0.3s ease-in-out;
+}
+
+.senha {
+    transition: opacity 0.3s ease-in-out;
 }
 
 .input__icone {
@@ -114,6 +121,7 @@ button {
     all: unset;
     position: absolute;
     right: 8px;
+    cursor: pointer;
 }
 .icone {
     width: 1.5rem;
@@ -121,13 +129,29 @@ button {
     height: auto;
 
     opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
+
+.botao-acesso {
+    width: 100%;
+    height: 50px;
+
+    border-radius: 1rem;
+    font-family: var(--fonte-montserrat);
+    font-weight: 600;
+    font-size: 1.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* Tela de login */
 .login {
     width: inherit;
     height: inherit;
+    padding: 2.5rem;
 
     color: var(--cor-texto-principal);
     font-family: var(--fonte-poppins);
@@ -141,6 +165,10 @@ button {
     align-items: center;
 
     transition: transform 0.5s ease-in-out;
+}
+
+.login__titulo {
+    color: var(--cor-laranja-escuro);
 }
 
 .login__campo {
@@ -152,9 +180,17 @@ button {
     gap: 1rem;
 }
 
+.login__senha-recuperar {
+    align-self: flex-end;
+    color: var(--cor-azul-escuro);
+    font-size: 0.85rem;
+    letter-spacing: 0.03125rem;
+}
+
 .login__enviar {
+    width: inherit;
     margin-top: auto;
-    margin-bottom: 2rem;
+    padding: 0 2.5rem;
 
     display: flex;
     flex-direction: column;
@@ -162,12 +198,26 @@ button {
     gap: 1rem;
 }
 
+.login__enviar-hyperlink {
+    background-color: var(--cor-laranja);
+    color: var(--cor-branca);
+}
+.login__cadastrar-botao {
+    background-color: var(--cor-branca);
+    color: var(--cor-laranja-escuro);
+    border: solid var(--cor-laranja) 0.125rem;
+}
+
 
 /* Tela de cadastro */
 .sign {
+    overflow: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
     position: absolute;
     width: inherit;
     height: inherit;
+    padding: 2.5rem;
 
     color: var(--cor-texto-principal);
     font-family: var(--fonte-poppins);
@@ -183,6 +233,10 @@ button {
     transition: transform 0.5s ease-in-out;
 }
 
+.sign__titulo {
+    color: var(--cor-azul-escuro);
+}
+
 .sign__campo {
     width: inherit;
     padding: 0 2.5rem;
@@ -192,13 +246,24 @@ button {
     gap: 1rem;
 }
 
+.sign__senha-requisitos {
+    display: none;
+}
+
 .sign__cadastrar {
+    width: inherit;
     margin-top: auto;
-    margin-bottom: 2rem;
+    padding: 0 2.5rem;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.sign__cadastrar-botao {
+    background-color: var(--cor-branca);
+    color: var(--cor-azul);
+    border: solid var(--cor-azul-escuro) 0.125rem;
 }
 
 /* Imagens laterais */

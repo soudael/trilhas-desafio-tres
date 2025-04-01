@@ -1,5 +1,5 @@
 var img = document.getElementById("seta-voltar");
-img.src = "./assets/icons/SetaEsquerdaCinza.svg";
+img.src = "./media/icons/SetaEsquerdaCinza.svg";
 
 /* ------------------- Alterar seta de acordo com o hover ------------------- */
 
@@ -7,7 +7,7 @@ function trocarSetaParaLaranja() {
     var img = document.getElementById("seta-voltar");
 
     setTimeout(function () {
-        img.src = "./assets/icons/SetaEsquerdaLaranja.svg";
+        img.src = "./media/icons/SetaEsquerdaLaranja.svg";
         img.style.opacity = "1";
     });
 }
@@ -16,7 +16,7 @@ function trocarSetaParaCinza() {
     var img = document.getElementById("seta-voltar");
 
     setTimeout(function () {
-        img.src = "./assets/icons/SetaEsquerdaCinza.svg";
+        img.src = "./media/icons/SetaEsquerdaCinza.svg";
         img.style.opacity = "1";
     });
 }

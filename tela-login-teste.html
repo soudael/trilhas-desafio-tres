@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="/media/icons/Flavicon.svg">
+
     <link rel="stylesheet" href="/styles/reset.css">
     <link rel="stylesheet" href="/styles/estilo-login-teste.css">
     <script src="/scripts/codigo-login-teste.js" defer></script>
+
     <title>Login</title>
 </head>
 <body>
@@ -33,13 +37,13 @@
                             <img class="icone" src="/media/icons/OlhoAberto.svg">
                         </button>
                     </section>
-                    <a class="login__senha-recuperar" href="">Esqueceu do seu e-mail ou senha?</a>
                 </label>
+                <a class="login__senha-recuperar" href="">Esqueceu do seu e-mail ou senha?</a>
             </section>
 
             <section class="login__enviar">
-                <a class="login__enviar-hyperlink" href="forms.html">Entrar</a>
-                <button class="login__enviar-botao cadastrar">Cadastrar-se</button>
+                <a class="login__enviar-hyperlink entrar botao-acesso" href="forms.html">Entrar</a>
+                <button class="login__cadastrar-botao cadastrar botao-acesso">Cadastrar-se</button>
             </section>
         </section>
         </section>
@@ -65,12 +69,12 @@
                     </section>
                 </label>
 
-                <ul class="sign__senha-requisitos" hidden>
-                    <li class="invisivel">Contém pelo menos uma letra maiúscula</li>
-                    <li class="invisivel">Contém pelo menos uma letra minúscula</li>
-                    <li class="invisivel">Contém pelo menos um número</li>
-                    <li class="invisivel">Contém pelo menos um símbolo</li>
-                    <li class="invisivel">A senha contém 8 ou mais caracteres</li>
+                <ul class="sign__senha-requisitos">
+                    <li class="requisito">Contém pelo menos uma letra maiúscula</li>
+                    <li class="requisito">Contém pelo menos uma letra minúscula</li>
+                    <li class="requisito">Contém pelo menos um número</li>
+                    <li class="requisito">Contém pelo menos um símbolo</li>
+                    <li class="requisito">A senha contém 8 ou mais caracteres</li>
                 </ul>
 
                 <label class="sign__confirmar label">
@@ -85,7 +89,7 @@
             </section>
 
             <section class="sign__cadastrar">
-                <button class="sign__cadastrar-hyperlink cadastrar" href="">Cadastrar-se</button>
+                <button class="sign__cadastrar-botao cadastrar botao-acesso" href="">Cadastrar-se</button>
             </section>
         </section>
         </section>

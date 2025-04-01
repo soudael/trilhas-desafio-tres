@@ -36,11 +36,15 @@ botaoIcone.forEach(botao => {
         }
 
         olhoIcone.style.transition = "none";
+        senhaClasse.style.transition = "none";
+        senhaClasse.style.opacity = 0;
         olhoIcone.style.opacity = 0;
 
         void olhoIcone.offsetWidth;
         
-        olhoIcone.style.transition = "opacity 0.5s ease-in-out";
+        olhoIcone.style.transition = "opacity 0.3s ease-in-out";
+        senhaClasse.style.transition = "opacity 0.3s ease-in-out";
+        senhaClasse.style.opacity = 1;
         olhoIcone.style.opacity = 1;
      });
 });
@@ -53,11 +57,13 @@ campoInput.forEach(input => {
     input.addEventListener("focus", function () {
         const campoLabel = this.closest("label").querySelector("span");
         campoLabel.style.transform = "translate(0, 0) scale(0.875)";
+        campoLabel.style.color = "var(--cor-cinza-escuro)";
     });
     input.addEventListener("blur", function () {
         const campoLabel = this.closest("label").querySelector("span");
         if (input.value.trim() === "") {
             campoLabel.style.transform = "translate(0.5rem, 2rem) scale(1)";
+            campoLabel.style.color = "var(--cor-texto-principal)";
         }
-    })
+    });
 });

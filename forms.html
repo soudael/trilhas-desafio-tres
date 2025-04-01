@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" href="/media/icons/SetaEsquerdaCinza.svg" as="image">
+    <link rel="preload" href="/media/icons/SetaEsquerdaLaranja.svg" as="image">
+
     <link rel="stylesheet" href="./styles/forms.css">
     <script src="/scripts/forms.js" defer></script>
+
     <title>Formulário</title>
 </head>
 
 <body>
     <section class="background">
-        <img class="background__ilustracao" src="./assets/imgs/Ilustracao.svg" alt="Ilustracao">
-        <img class="background__logo" src="./assets/imgs/LogoTrilhasInovaBranco.svg" alt="Logo Trilhas Inova">
+        <img class="background__ilustracao" src="./media/images/Ilustracao.svg" alt="Ilustracao">
+        <img class="background__logo" src="./media/images/LogoTrilhasInovaBranco.svg" alt="Logo Trilhas Inova">
     </section>
 
     <main>
@@ -37,7 +42,7 @@
                     <h2 class="forms__label">Foto do usuário</h2>
                     <input type="file" id="foto-perfil" name="FotoDePerfil" hidden>
                     <label class="forms__upload" for="foto-perfil">
-                        <img class="forms__upload__icone" src="./assets/icons/Upload.svg" alt="Upload">
+                        <img class="forms__upload__icone" src="./media/icons/Upload.svg" alt="Upload">
                         <span class="forms__upload__label">Clique aqui para selecionar o arquivo</span>
                     </label>
                 </section>
@@ -97,7 +102,7 @@
                     <h2 class="forms__label">Documento de identidade</h2>
                     <input type="file" id="documento-id" name="DocumentoDeIdentidade" hidden>
                     <label class="forms__upload" for="documento-id">
-                        <img class="forms__upload__icone" src="./assets/icons/Upload.svg" alt="Upload">
+                        <img class="forms__upload__icone" src="./media/icons/Upload.svg" alt="Upload">
                         <span class="forms__upload__label">Clique aqui para selecionar o arquivo</span>
                     </label>
                 </section>
@@ -139,7 +144,7 @@
                     <h2 class="forms__label">Comprovante de residência</h2>
                     <input type="file" id="comprovante" name="ComprovanteResidencia" hidden>
                     <label class="forms__upload" for="comprovante">
-                        <img class="forms__upload__icone" src="./assets/icons/Upload.svg" alt="Upload">
+                        <img class="forms__upload__icone" src="./media/icons/Upload.svg" alt="Upload">
                         <span class="forms__upload__label">Clique aqui para selecionar o arquivo</span>
                     </label>
                 </section>
@@ -156,14 +161,14 @@
                         <section class="forms__trilhas__secao__grupo__bloco">
                             <input type="radio" id="front-end" name="TrilhaSelecionada">
                             <label class="forms__trilhas__secao__grupo__conteudo" for="front-end">
-                                <img src="./assets/icons/Frontend.svg" alt="Front-end">
+                                <img src="./media/icons/Frontend.svg" alt="Front-end">
                                 <span>Programação Front-end</span>
                             </label>
                         </section>
                         <section class="forms__trilhas__secao__grupo__bloco">
                             <input type="radio" id="back-end" name="TrilhaSelecionada">
                             <label class="forms__trilhas__secao__grupo__conteudo" for="back-end">
-                                <img src="./assets/icons/Backend.svg" alt="Back-end">
+                                <img src="./media/icons/Backend.svg" alt="Back-end">
                                 <span>Programação Back-end</span>
                             </label>
                         </section>
@@ -173,14 +178,14 @@
                         <section class="forms__trilhas__secao__grupo__bloco">
                             <input type="radio" id="programacao-jogos" name="TrilhaSelecionada">
                             <label class="forms__trilhas__secao__grupo__conteudo" for="programacao-jogos">
-                                <img class="trilhas__imagem"src="./assets/icons/Jogos.svg" alt="Jogos">
+                                <img class="trilhas__imagem"src="./media/icons/Jogos.svg" alt="Jogos">
                                 <span>Programação de Jogos</span>
                             </label>
                         </section>
                         <section class="forms__trilhas__secao__grupo__bloco">
                             <input type="radio" id="ux-design" name="TrilhaSelecionada">
                             <label class="forms__trilhas__secao__grupo__conteudo" for="ux-design">
-                                <img class="trilhas__imagem"src="./assets/icons/UX.svg" alt="UX Design">
+                                <img class="trilhas__imagem"src="./media/icons/UX.svg" alt="UX Design">
                                 <span>Design e Experiência</span>
                             </label>
                         </section>
@@ -191,7 +196,7 @@
                             <section class="forms__trilhas__secao__grupo__bloco">
                                 <input type="radio" id="ciencia-dados" name="TrilhaSelecionada">
                                 <label class="forms__trilhas__secao__grupo__conteudo" for="ciencia-dados">
-                                    <img class="trilhas__imagem"src="./assets/icons/Dados.svg" alt="Dados">
+                                    <img class="trilhas__imagem"src="./media/icons/Dados.svg" alt="Dados">
                                     <span>Ciência de Dados</span>
                                 </label>
                             </section>
