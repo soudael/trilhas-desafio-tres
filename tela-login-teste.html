@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/reset.css">
-    <link rel="stylesheet" href="/styles/login.css">
-    <script src="/scripts/login.js" defer></script>
+    <link rel="stylesheet" href="/styles/estilo-login-teste.css">
+    <script src="/scripts/codigo-login-teste.js" defer></script>
     <title>Login</title>
 </head>
 <body>
@@ -19,10 +19,9 @@
             <span class="login__titulo titulo">Login</span>
 
             <section class="login__campo">
-
                 <label class="login__email label">
                     <span class="login__email-span span">E-mail</span>
-                    <input class="login__email-input input" type="email" id="login-email" name="loginEmail" placeholder="exemplo@gmail.com">
+                    <input class="login__email-input input" type="email" id="login-email" name="loginEmail">
                 </label>
 
                 <label class="login__senha label">
@@ -39,23 +38,23 @@
             </section>
 
             <section class="login__enviar">
-                <a class="login__enviar-hyperlink" href="">Entrar</a>
+                <a class="login__enviar-hyperlink" href="forms.html">Entrar</a>
                 <button class="login__enviar-botao cadastrar">Cadastrar-se</button>
             </section>
         </section>
         </section>
         
-        <section classs="tela">
+        <section class="tela">
         <section class="sign">
             <span class="sign__titulo titulo">Cadastrar-se</span>
 
             <section class="sign__campo">
-                <label class="sign__email">
+                <label class="sign__email label">
                     <span class="sign__email-span span">E-mail</span>
-                    <input class="sign__email-input input" type="email" id="sign-email" name="signEmail" placeholder="exemplo@gmail.com">
+                    <input class="sign__email-input input" type="email" id="sign-email" name="signEmail">
                 </label>
 
-                <label class="sign__senha">
+                <label class="sign__senha label">
                     <span class="sign__senha-span span">Senha</span>
 
                     <section class="sign__senha-grupo input__icone">
@@ -74,7 +73,7 @@
                     <li class="invisivel">A senha contém 8 ou mais caracteres</li>
                 </ul>
 
-                <label class="sign__confirmar">
+                <label class="sign__confirmar label">
                     <span class="sign__confirmar-span span">Confirme sua senha</span>
                     <section class="sign__confirmar-grupo input__icone">
                         <input class="sign__confirmar-input input senha" type="password" id="sign-senha-confirmar" name="signConfirmarSenha">
@@ -84,7 +83,6 @@
                     </section>
                 </label>
             </section>
-            
 
             <section class="sign__cadastrar">
                 <button class="sign__cadastrar-hyperlink cadastrar" href="">Cadastrar-se</button>

@@ -23,6 +23,7 @@
 body {
     background-color: var(--cor-azul);
     background: linear-gradient(to bottom, var(--cor-azul-claro) 0%, var(--cor-azul) 50%, var(--cor-azul-escuro) 100%);
+    overflow-x: hidden;
 }
 
 .conteudo {
@@ -34,50 +35,185 @@ body {
     width: 60%;
 }
 
-
 /* Área de login */
 .login-sign {
+    position: relative;
     font-family: var(--fonte-poppins);
+    display: flex;
+    justify-content: center;
 
     overflow: hidden;
     background-color: var(--cor-branca);
     background: linear-gradient(to bottom, var(--cor-branca) 80%, var(--cor-branca-cinza) 100%);
     border-radius: 1rem;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 30rem;
-    height: 30rem;
+    width: 60%;
+    height: auto;
 }
 
-.tela {
+
+.login {
+    background: inherit;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.75rem;
+    width: 100%;
+
+    transition: transform 0.5s ease-in-out;
+}
+
+.login__campo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     width: 100%;
 }
 
+
+/* Área do input de email e senha */
+.label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.span {
+    color: var(--cor-texto-principal);
+}
+
+.input__icone {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    box-sizing: border-box;
+    border: solid var(--cor-cinza) 0.1rem;
+    border-radius: 0.75rem;
+
+    font-size: 1rem;
+    color: var(--cor-texto-principal);
+
+    padding: 0 0.75rem;
+
+    width: 100%;
+    height: 2.5rem;
+}
+::placeholder {
+    color: var(--cor-cinza-escuro);
+}
+.input:focus {
+    outline: none;
+}
+
+.botao {
+    all: unset;
+    position: absolute;
+
+    right: 0.75rem;
+    cursor: pointer;
+}
 .icone {
     width: 1.5rem;
     height: auto;
 }
+
+.login__senha-recuperar {
+    color: var(--cor-azul-escuro);
+}
+
+
+/* Entrar ou cadastrar-se */
+.login__enviar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    gap: 1rem;
+}
+
+.login__enviar-hyperlink {
+    color: var(--cor-branca);
+    background-color: var(--cor-laranja);
+    border-radius: 1rem;
+
+    width: 80%;
+    padding: 1rem 0;
+
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.0625rem;
+}
+
+.cadastrar {
+    all: unset;
+    cursor: pointer;
+    color: var(--cor-laranja);
+    background-color: var(--cor-branca);
+    border-radius: 1rem;
+    border: solid var(--cor-laranja) 0.125rem;
+
+    width: 80%;
+    padding: 1rem 0;
+
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.0625rem;
+}
+
+
+/* Área de Cadastro */
+.sign {
+    position: absolute;
+    transform: translate(150%, 0);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.75rem;
+    width: 60%;
+    height: auto;
+
+    transition: transform 0.5s ease-in-out;
+}
+
+.sign__campo {
+    padding-left: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.titulo {
+    font-family: var(--fonte-montserrat);
+    font-weight: 600;
+    color: var(--cor-laranja-escuro);
+    font-size: 3rem;
+}
+
 
 /* Imagens laterais */
 
 .imagem {
     width: 40%;
     position: absolute;
-    right: 2.4rem;
+    right: 0;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 .logo {
-    width: 16rem;
+    width: 50%;
 }
-
 
 /* Animações */
 
@@ -92,6 +228,7 @@ body {
         transform: translateY(0);
     }
 }
+
 .imagem {
     animation: levitar 10s ease-in-out infinite;
 }
