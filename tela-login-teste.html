@@ -15,6 +15,12 @@
 </head>
 <body>
     <main>
+    <section class="alert">
+        <section class="alert__quadrado">
+            <span class="alert__quadrado-texto">Texto de Teste</span>
+        </section>
+    </section>
+
     <section class="conteudo">
         <section class="login-sign">
 
@@ -42,7 +48,9 @@
             </section>
 
             <section class="login__enviar">
-                <a class="login__enviar-hyperlink entrar botao-acesso" href="forms.html">Entrar</a>
+                <form id="entrarConta">
+                    <button class="login__enviar-botao entrar botao-acesso" type="submit">Entrar</button>
+                </form>
                 <button class="login__cadastrar-botao cadastrar botao-acesso">Cadastrar-se</button>
             </section>
         </section>
@@ -88,9 +96,9 @@
                 </label>
             </section>
 
-            <section class="sign__cadastrar">
-                <button class="sign__cadastrar-botao cadastrar botao-acesso" href="">Cadastrar-se</button>
-            </section>
+            <form class="sign__cadastrar" id="cadastrarConta">
+                <button class="sign__cadastrar-botao cadastrar botao-acesso" type="submit">Cadastrar-se</button>
+            </form>
         </section>
         </section>
 

@@ -41,9 +41,9 @@ botaoIcone.forEach(botao => {
         olhoIcone.style.opacity = 0;
 
         void olhoIcone.offsetWidth;
-        
-        olhoIcone.style.transition = "opacity 0.3s ease-in-out";
-        senhaClasse.style.transition = "opacity 0.3s ease-in-out";
+
+        olhoIcone.style.transition = "opacity 0.2s ease-in-out";
+        senhaClasse.style.transition = "opacity 0.2s ease-in-out";
         senhaClasse.style.opacity = 1;
         olhoIcone.style.opacity = 1;
      });
@@ -66,4 +66,63 @@ campoInput.forEach(input => {
             campoLabel.style.color = "var(--cor-texto-principal)";
         }
     });
+});
+
+
+// Ativa/desativa requisitos de senha
+const senhaCriada = document.querySelector(".sign__senha-input");
+const areaRequisitos = document.querySelector(".sign__senha-requisitos");
+const listaReq = document.querySelectorAll(".requisito");
+
+senhaCriada.addEventListener("focus", function () {
+    areaRequisitos.style.display = "block";
+    setTimeout(() => {
+        areaRequisitos.style.opacity = 1;
+    });
+});
+
+senhaCriada.addEventListener("blur", function () {
+    areaRequisitos.style.opacity = 0;
+    setTimeout(() => {
+        areaRequisitos.style.display = "none";
+    }, 200);
+});
+
+senhaCriada.addEventListener("input", function () {
+    const requisitos = [/[A-Z]/, /[a-z]/, /\d/, /[\W_]/, /.{8,}/];
+
+    requisitos.forEach((requisito, index) => {
+        listaReq[index].style.color = senhaCriada.value.match(requisito) ? "var(--cor-azul)" : "var(--cor-vermelha)";
+    });
+});
+
+
+// Armazenamento de contas cadastradas
+document.querySelector("#cadastrarConta").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const usuario = {
+        email: document.querySelector("#sign-email").value,
+        senha: document.querySelector("#sign-senha").value,
+    };
+
+    localStorage.setItem("usuarioCadastrado", JSON.stringify(usuario));
+
+    alert("Conta cadastrada com sucesso!");
+});
+
+
+// Verificação de contas cadastradas
+document.querySelector("#entrarConta").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const emailDigitado = document.querySelector("#login-email").value;
+    const senhaDigitada = document.querySelector("#login-senha").value;
+    const usuarioSalvo = JSON.parse(localStorage.getItem("usuarioCadastrado"));
+
+    if (usuarioSalvo && usuarioSalvo.email === emailDigitado && usuarioSalvo.senha === senhaDigitada) {
+        window.location.href = "forms.html";
+    } else {
+        alert("E-mail ou senha incorretos!");
+    }
 });
