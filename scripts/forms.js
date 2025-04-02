@@ -1,120 +1,95 @@
-var img = document.getElementById("seta-voltar");
-img.src = "./assets/icons/SetaEsquerdaCinza.svg";
+// Alterar seta de acordo com o hover
+const voltar = document.getElementById("link-voltar");
+const setaLaranja = document.getElementById("seta-laranja");
+const span = document.querySelector(".forms__introducao__label");
 
-/* ------------------- Alterar seta de acordo com o hover ------------------- */
-
-function trocarSetaParaLaranja() {
-    var img = document.getElementById("seta-voltar");
-
-    setTimeout(function () {
-        img.src = "./assets/icons/SetaEsquerdaLaranja.svg";
-        img.style.opacity = "1";
-    });
-}
-
-function trocarSetaParaCinza() {
-    var img = document.getElementById("seta-voltar");
-
-    setTimeout(function () {
-        img.src = "./assets/icons/SetaEsquerdaCinza.svg";
-        img.style.opacity = "1";
-    });
-}
-
-var img = document.getElementById("link-voltar");
-img.addEventListener("mouseover", trocarSetaParaLaranja);
-img.addEventListener("mouseout", trocarSetaParaCinza);
+voltar.addEventListener("mouseover", function () {
+    span.style.color = "var(--cor-laranja-claro)";
+    setaLaranja.style.opacity = 1;
+});
+voltar.addEventListener("mouseout", function () {
+    span.style.color = "var(--cor-cinza)";
+    setaLaranja.style.opacity = 0;
+});
 
 
-/* --------------- Adicionar novos inputs para redes sociais ---------------- */
-
-function verificarInput(event) {
-    let input = event.target; // seleciona apenas o input que deu origem à execução desse evento
-    if (input.value.trim() === "") { // acontece caso não haja nada escrito no input
-        input.previousElementSibling?.remove(); // remove quebra de linha criada
-        input.remove(); // remove o input
-    }
-}
-
+// Adicionar novos inputs para redes sociais
 function adicionarRedeSocial() {
     let section = document.getElementById("redes-sociais");
     let qtdInputs = section.querySelectorAll("input").length;
-    let novoIdentificador = "rede-" + (qtdInputs + 1); // cria um novo ID baseado na quantidade de inputs até o momento
+    let novoIdentificador = "rede-" + (qtdInputs + 1);
 
-    let novoInput = document.createElement("input"); // define os atributos do novo input
+    let novoInput = document.createElement("input");
     novoInput.setAttribute("class", "forms__input");
+    novoInput.setAttribute("type", "url");
     novoInput.setAttribute("id", novoIdentificador);
     novoInput.setAttribute("name", "rede-social");
     novoInput.setAttribute("placeholder", "Insira um link");
 
-    novoInput.addEventListener("blur", verificarInput); // testa se a caixa do input foi desselecionada
+    novoInput.addEventListener("blur", (event) => {
+        let input = event.target;
+        if (input.value.trim() === "") {
+            input.previousElementSibling?.remove();
+            input.remove();
+        }
+    });
 
-    let pularLinha = document.createElement("br"); // cria uma quebra de linha
+    let pularLinha = document.createElement("br");
 
     let botao = document.getElementById("adicionar-rede");
-    section.insertBefore(pularLinha, botao); // adiciona quebra de linha
-    section.insertBefore(novoInput, botao); // adiciona novo input
+    section.insertBefore(pularLinha, botao);
+    section.insertBefore(novoInput, botao);
 
-    novoInput.focus(); // habilita a escrita dentro do input logo que é criado
+    novoInput.focus();
 }
 
-/* ------------------------------- FORMATAÇÃO ------------------------------- */
+// Formatação de inputs do tipo número
+function formatarData(input) {
+    let value = input.value.replace(/\D/g, "");
 
-    function formatarData(input) {
-        let value = input.value.replace(/\D/g, "");
-
-        if (value.length > 8) {
-            value = value.slice(0, 8);
-        }
-
-        value = value.replace(/(\d{2})(\d+)/, "$1/$2");
-        value = value.replace(/(\d{2}\/\d{2})(\d+)/, "$1/$2");
-
-        input.value = value;
+    if (value.length > 8) {
+        value = value.slice(0, 8);
     }
+    value = value.replace(/(\d{2})(\d+)/, "$1/$2");
+    value = value.replace(/(\d{2}\/\d{2})(\d+)/, "$1/$2");
+    input.value = value;
+}
 
-    function formatarCPF(input) {
-        let value = input.value.replace(/\D/g, "");
+function formatarCPF(input) {
+    let value = input.value.replace(/\D/g, "");
 
-        if (value.length > 11) {
-            value = value.slice(0, 11);
-        }
-
-        value = value.replace(/(\d{3})(\d+)/, "$1.$2");
-        value = value.replace(/(\d{3})(\d+)/, "$1.$2");
-        value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
-
-        input.value = value;
+    if (value.length > 11) {
+        value = value.slice(0, 11);
     }
+    value = value.replace(/(\d{3})(\d+)/, "$1.$2");
+    value = value.replace(/(\d{3})(\d+)/, "$1.$2");
+    value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    input.value = value;
+}
 
-    function formatarTel(input) {
-        let value = input.value.replace(/\D/g, "");
+function formatarTel(input) {
+    let value = input.value.replace(/\D/g, "");
 
-        if (value.length > 11) {
-            value = value.slice(0, 8);
-        }
-
-        value = value.replace(/(\d{2})(\d+)/, "($1) $2");
-        value = value.replace(/(\d{5})(\d+)$/, "$1-$2");
-
-        input.value = value;
+    if (value.length > 11) {
+        value = value.slice(0, 8);
     }
+    value = value.replace(/(\d{2})(\d+)/, "($1) $2");
+    value = value.replace(/(\d{5})(\d+)$/, "$1-$2");
+    input.value = value;
+}
 
-    function formatarCEP(input) {
-        let value = input.value.replace(/\D/g, "");
+function formatarCEP(input) {
+    let value = input.value.replace(/\D/g, "");
 
-        if (value.length > 8) {
-            value = value.slice(0, 8);
-        }
-
-        value = value.replace(/(\d{5})(\d+)/, "$1-$2")
-
-        input.value = value;
+    if (value.length > 8) {
+        value = value.slice(0, 8);
     }
+    value = value.replace(/(\d{5})(\d+)/, "$1-$2")
+    input.value = value;
+}
 
 
-/* ----- Envio de arquivos: display din6amico do nome do arquivo enviado ----- */
-
+// Exibição dinâmica do nome do arquivo enviado
 document.addEventListener("DOMContentLoaded", function() {
     const fileInputs = document.querySelectorAll('input[type="file"]');
     fileInputs.forEach(input => {

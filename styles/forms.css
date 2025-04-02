@@ -65,7 +65,7 @@ label a {
 }
 
 input:focus {
-    border-color: var(--cor-cinza-escuro);
+    border-color: var(--cor-laranja-claro);
     outline: none;
 }
 
@@ -88,22 +88,29 @@ button {
         gap: 24px;
     }
 
-    .forms__introducao__voltar {
+    #link-voltar {
+        position: relative;
+        overflow: hidden;
         display: flex;
         align-items: center;
         gap: 8px;
     }
 
-    .forms__introducao__voltar span{
-        transition: color 0.1s ease-in-out;
+    .forms__introducao__voltar span {
         color: var(--cor-cinza);
-    }
-    .forms__introducao__voltar:hover span{
         transition: color 0.1s ease-in-out;
-        color: var(--cor-laranja-claro);
     }
-    #seta-voltar {
-        transition: opacity 0.2s ease-in-out;
+    #seta-cinza {
+        z-index: 1;
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        transition: opacity 0.1s ease-in-out;
+    }
+    #seta-laranja {
+        z-index: 2;
+        opacity: 0;
+        transition: opacity 0.1s ease-in-out;
     }
 
     .forms__introducao__texto {

@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preload" href="/assets/icons/SetaEsquerdaLaranja.svg" as="image">
     <link rel="stylesheet" href="./styles/forms.css">
     <script src="./scripts/forms.js" defer></script>
+
     <title>Formulário</title>
 </head>
 
@@ -20,7 +23,8 @@
 
         <section class="forms__introducao">
             <a class="forms__introducao__voltar" id="link-voltar" href="index.html">
-                <img id="seta-voltar" alt="Voltar" width="24px" height="auto">
+                <img id="seta-laranja" src="/assets/icons/SetaEsquerdaLaranja.svg" alt="Voltar">
+                <img id="seta-cinza" src="/assets/icons/SetaEsquerdaCinza.svg" alt="Voltar">
                 <span class="forms__introducao__label">Voltar</span>
             </a>
             <section class="forms__introducao__texto">
@@ -79,13 +83,13 @@
                 
                 <section class="forms__informacoes__telefone">
                     <h2 class="forms__label">Telefone</h2>
-                    <input class="forms__input" id="telefone" name="NumeroDeTelefone" inputmode="numeric" maxlength="15" oninput="formatarTel(this)" placeholder="(XX) XXXXX-XXXX">
+                    <input class="forms__input" type="tel" id="telefone" name="NumeroDeTelefone" inputmode="numeric" maxlength="15" oninput="formatarTel(this)" placeholder="(XX) XXXXX-XXXX">
                 </section>
                 
                 <section class="forms__informacoes__redes">
                     <h2 class="forms__label">Redes sociais</h2>
                     <section class="forms__informacoes__redes__secao" id="redes-sociais">
-                        <input class="forms__input" id="rede-1" name="rede-social" placeholder="Insira um link">
+                        <input class="forms__input" type="url" id="rede-1" name="rede-social" placeholder="Insira um link">
                         <button id="adicionar-rede" type="button" onclick=adicionarRedeSocial() hidden>Adicionar</button>
                         <label class="forms__informacoes__redes__secao__botao" for="adicionar-rede">
                             <span class="forms__upload__label">+ Novo link</span>

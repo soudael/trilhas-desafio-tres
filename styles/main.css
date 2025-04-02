@@ -34,11 +34,11 @@ footer {
 }
 
 
-.conteudo {
+.home {
     padding: 12% 7.5% 18.5% 7.5%;
 }
 
-.menu {
+.conteudo {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -46,7 +46,7 @@ footer {
     gap: 11.875rem;
     width: 100%;
 }
-.menu__label__direita {
+.label__direita {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -56,7 +56,7 @@ footer {
     padding-right: 5rem;
     margin: -0.625rem;
 }
-.menu__label__esquerda {
+.label__esquerda {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -67,7 +67,7 @@ footer {
     margin: -0.625rem;
 }
 
-.menu__baloes {
+.baloes {
     width: 100%;
     max-width: 1280px;
     position: relative;
@@ -77,60 +77,60 @@ footer {
     align-items: center;
     gap: 1.875rem;
 }
-.menu__baloes__direita {
+.balao__direito {
     padding-left: 40%;
 }
-.menu__baloes__esquerda {
+.balao__esquerdo {
     padding-right: 40%;
 }
 
 
-.menu__baloes__bloco {
+.balao__campo {
     width: auto;
     position: relative;
     display: inline-block;
 }
-.menu__baloes__bloco img {
+.balao__campo img {
     width: auto;
     display: block;
 }
-.menu__baloes__bloco span {
+.balao__campo span {
     font-family: var(--fonte-poppins);
     font-weight: 600;
     font-size: 2.25rem;
 
     box-sizing: border-box;
 }
-.menu__baloes__bloco span strong {
+.balao__campo span strong {
     color: var(--cor-laranja);
     font-weight: 600;
 }
 
 
-.menu__baloes__adesivo {
+.adesivo__trilhas {
     position: absolute;
     top: 85%;
     right: 2%;
 }
 
 
-.menu__baloes__controle {
+.adesivo__controle {
     position: absolute;
     bottom: 80%;
     left: 11%;
 }
-.menu__baloes__controle img {
+.adesivo__controle img {
     width: 60%;
 }
 
 
-.menu__chamada {
+.chamada {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5.5rem;
 }
-.menu__chamada__texto {
+.chamada__campo {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -142,13 +142,13 @@ footer {
 
     gap: 1.375rem;
 }
-.menu__chamada__texto img {
+.chamada__campo img {
     width: 42.5rem;
     height: auto;
 }
 
 
-.menu__chamada a {
+.chamada a {
     background-color: var(--cor-laranja);
     width: 21.875rem;
     padding: 1rem 0;
@@ -163,18 +163,18 @@ footer {
 
     transition: background-color 0.2s ease-in-out;
 }
-.menu__chamada a:hover {
+.chamada a:hover {
     background-color: var(--cor-laranja-claro);
 }
 
 
-.faixa-esquerda {
+.faixa__esquerda {
     position: absolute;
     width: 30rem;
     left: 0;
     bottom: 0;
 }
-.faixa-direita {
+.faixa__direita {
     position: absolute;
     width: 30rem;
     right: 0;
@@ -188,21 +188,21 @@ footer {
         height: 100vh;
     }
 
-    .menu__baloes__adesivo, .menu__baloes__controle, .faixa-esquerda, .faixa-direita {
+    .adesivo__trilhas, .adesivo__controle, .faixas__esquerda, .faixas__direita {
         display: none;
     }
 
-    .menu__baloes {
+    .baloes {
         gap: 6.25rem;
     }
-    .menu__baloes__direita, .menu__baloes__esquerda {
+    .balao__direito, .balao__esquerdo {
         padding: 0;
     }
 
-    .menu__chamada {
+    .chamada {
         gap: 8.125rem;
     }
-    .menu__chamada__texto {
+    .chamada__campo {
         gap: 2.5rem;
     }
 
@@ -215,16 +215,16 @@ footer {
 }
 
 @media (max-width: 720px) {
-    .menu__chamada__texto img {
+    .chamada__campo img {
         width: 30rem;
         height: auto;
     }
 
-    .menu__baloes__bloco img {
+    .balao__campo img {
         width: 30rem;
         height: auto;
     }
-    .menu__baloes__bloco span {
+    .balao__campo span {
         font-size: 1.5rem;
     }
 
@@ -234,34 +234,34 @@ footer {
 }
 
 @media (max-width: 530px) {
-    .menu {
+    .conteudo {
         gap: 100px;
     }
 
-    .menu__baloes {
+    .baloes {
         gap: 25px;
     }
 
-    .menu__baloes__bloco img {
+    .balao__campo img {
         width: 300px;
     }
-    .menu__baloes__bloco span {
+    .balao__campo span {
         font-size: 1rem;
     }
 
-    .menu__label__direita {
+    .label__direita {
         padding-top: 0.5rem;
         padding-right: 2.5rem;
     }
-    .menu__label__esquerda {
+    .label__esquerda {
         padding-top: 0.5rem;
         padding-left: 2.5rem;
     }
 
-    .menu__chamada__texto img {
+    .chamada__campo img {
         width: 20rem;
     }
-    .menu__chamada a {
+    .chamada a {
         width: 15rem;
     }
 
@@ -271,10 +271,10 @@ footer {
 }
 
 @media (max-width: 350px) {
-    .menu__chamada__texto{
+    .chamada__campo{
         font-size: 1rem;
     }
-    .menu__chamada__texto img {
+    .chamada__campo img {
         width: 15rem;
     }
 }
