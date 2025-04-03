@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" href="/media/icons/Flavicon.svg">
+    <link rel="prefetch" href="/media/icons/Certo.svg">
 
     <link rel="stylesheet" href="/styles/reset.css">
     <link rel="stylesheet" href="/styles/estilo-login-teste.css">
@@ -15,23 +16,24 @@
 </head>
 <body>
     <main>
-    <section class="alert">
+    <section class="alert" style="display: none">
         <section class="alert__quadrado">
             <span class="alert__quadrado-texto">Texto de Teste</span>
         </section>
     </section>
 
+    <section class="home">
     <section class="conteudo">
-        <section class="login-sign">
+        <section class="login__sign">
 
-        <section class="tela">
+        <section class="tela tela__login">
         <section class="login">
             <span class="login__titulo titulo">Login</span>
 
             <section class="login__campo">
                 <label class="login__email label">
                     <span class="login__email-span span">E-mail</span>
-                    <input class="login__email-input input" type="email" id="login-email" name="loginEmail">
+                    <input class="login__email-input input input__email" type="email" id="login-email" name="loginEmail">
                 </label>
 
                 <label class="login__senha label">
@@ -39,31 +41,32 @@
 
                     <section class="login__senha-grupo input__icone">
                         <input class="login__senha-input input senha" type="password" id="login-senha" name="loginSenha">
-                        <button class="login__senha-icone botao">
+                        <button class="login__senha-icone botao__icone">
                             <img class="icone" src="/media/icons/OlhoAberto.svg">
                         </button>
+                        <div class="input__icone-borda"></div>
                     </section>
+                    <a class="login__senha-recuperar" href="">Esqueceu do seu e-mail ou senha?</a>
                 </label>
-                <a class="login__senha-recuperar" href="">Esqueceu do seu e-mail ou senha?</a>
             </section>
 
-            <section class="login__enviar">
-                <form id="entrarConta">
-                    <button class="login__enviar-botao entrar botao-acesso" type="submit">Entrar</button>
+            <section class="login__botoes">
+                <form class="login__botao" id="entrar-conta">
+                    <button class="login__botao-login botao__destaque" type="submit">Fazer Login</button>
                 </form>
-                <button class="login__cadastrar-botao cadastrar botao-acesso">Cadastrar-se</button>
+                <button class="login__botao-cadastrar botao__simples">Ainda não possui uma conta? Cadastre-se!</button>
             </section>
         </section>
         </section>
         
-        <section class="tela">
+        <section class="tela tela__sign">
         <section class="sign">
-            <span class="sign__titulo titulo">Cadastrar-se</span>
+            <span class="sign__titulo titulo">Cadastro</span>
 
             <section class="sign__campo">
                 <label class="sign__email label">
                     <span class="sign__email-span span">E-mail</span>
-                    <input class="sign__email-input input" type="email" id="sign-email" name="signEmail">
+                    <input class="sign__email-input input input__email" type="email" id="sign-email" name="signEmail" placeholder="exemplo@gmail.com">
                 </label>
 
                 <label class="sign__senha label">
@@ -71,43 +74,51 @@
 
                     <section class="sign__senha-grupo input__icone">
                         <input class="sign__senha-input input senha" type="password" id="sign-senha" name="signSenha">
-                        <button class="sign__senha-icone botao">
+                        <button class="sign__senha-icone botao__icone">
                             <img class="icone" src="/media/icons/OlhoAberto.svg">
                         </button>
+                        <div class="input__icone-borda"></div>
                     </section>
                 </label>
 
                 <ul class="sign__senha-requisitos">
-                    <li class="requisito">Contém pelo menos uma letra maiúscula</li>
-                    <li class="requisito">Contém pelo menos uma letra minúscula</li>
-                    <li class="requisito">Contém pelo menos um número</li>
-                    <li class="requisito">Contém pelo menos um símbolo</li>
-                    <li class="requisito">A senha contém 8 ou mais caracteres</li>
+                    <li class="requisito"><img src="/media/icons/Errado.svg">Contém pelo menos uma letra maiúscula</li>
+                    <li class="requisito"><img src="/media/icons/Errado.svg">Contém pelo menos uma letra minúscula</li>
+                    <li class="requisito"><img src="/media/icons/Errado.svg">Contém pelo menos um número</li>
+                    <li class="requisito"><img src="/media/icons/Errado.svg">Contém pelo menos um símbolo</li>
+                    <li class="requisito"><img src="/media/icons/Errado.svg">A senha contém 8 ou mais caracteres</li>
                 </ul>
 
                 <label class="sign__confirmar label">
                     <span class="sign__confirmar-span span">Confirme sua senha</span>
                     <section class="sign__confirmar-grupo input__icone">
                         <input class="sign__confirmar-input input senha" type="password" id="sign-senha-confirmar" name="signConfirmarSenha">
-                        <button class="sign__confirmar-icone botao">
+                        <button class="sign__confirmar-icone botao__icone">
                             <img class="icone" src="/media/icons/OlhoAberto.svg">
                         </button>
+                        <div class="input__icone-borda"></div>
                     </section>
                 </label>
             </section>
 
-            <form class="sign__cadastrar" id="cadastrarConta">
-                <button class="sign__cadastrar-botao cadastrar botao-acesso" type="submit">Cadastrar-se</button>
-            </form>
+            <section class="sign__botoes">
+                <form class="sign__cadastrar" id="cadastrarConta">
+                    <button class="sign__botao-cadastrar cadastrar botao__destaque" type="submit">Cadastre-se</button>
+                </form>
+                <button class="sign__botao-login botao__simples">Já tem uma conta? Faça login!</button>
+            </section>
         </section>
         </section>
 
         </section>
+    </section>
 
-        <section class="imagem">
+    <section class="visuais">
+        <section class="arte">
             <img class="ilustracao" src="/media/images/Ilustracao.svg">
             <img class="logo" src="/media/images/LogoTrilhasInovaBranco.svg">
         </section>
+    </section>
     </section>
     </main>
 </body>

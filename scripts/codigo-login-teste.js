@@ -1,26 +1,42 @@
-// Transição de tela entre o Login e Cadastro
-const cadastrarBotao = document.querySelectorAll(".cadastrar");
-const telaLogin = document.querySelector(".login");
-const telaCadastro = document.querySelector(".sign");
+// Transição de tela entre o Login e Cadastro - Parte 1
+const telaLogin = document.querySelector(".tela__login");
+const telaCadastro = document.querySelector(".tela__sign");
+
+const atualizarAlturaCadastro = () => {
+    const alturaCad = telaCadastro.offsetHeight / 16;
+    document.documentElement.style.setProperty("--altura-tela-cadastro", `${alturaCad}rem`);
+};
+new ResizeObserver(atualizarAlturaCadastro).observe(telaCadastro);
+atualizarAlturaCadastro();
+
+const alturaLog = `${telaLogin.offsetHeight / 16}rem`;
+
+
+// Transição de tela entre o Login e Cadastro - Parte 2
+const cadastrarBotao = document.querySelectorAll(".botao__simples");
 
 let telaAtual = 1;
 cadastrarBotao.forEach(botao => {
     botao.addEventListener("click", function () {
         if (telaAtual == 1) {
             telaAtual = 2;
-            telaLogin.style.transform = "translate(25%, 0)";
-            telaCadastro.style.transform = "translate(-100%, 0)";
+            telaCadastro.style.transform = "translate(0, 0)";
+
+            telaLogin.style.height = getComputedStyle(telaLogin).height;
+            void telaLogin.offsetHeight;
+
+            telaLogin.style.height = "var(--altura-tela-cadastro)";
         } else {
             telaAtual = 1;
-            telaLogin.style.transform = "translate(0, 0)";
-            telaCadastro.style.transform = "translate(0, 0)";
+            telaCadastro.style.transform = "translate(100%, 0)";
+            telaLogin.style.height = `${alturaLog}`;
         }
     });
 });
 
 
 // Alterar visibilidade da senha
-const botaoIcone = document.querySelectorAll(".botao");
+const botaoIcone = document.querySelectorAll(".botao__icone");
 
 botaoIcone.forEach(botao => {
      botao.addEventListener("click", function () {
@@ -42,7 +58,7 @@ botaoIcone.forEach(botao => {
 
         void olhoIcone.offsetWidth;
 
-        olhoIcone.style.transition = "opacity 0.2s ease-in-out";
+        olhoIcone.style.transition = "opacity 0.2s ease-in-out, transform 0.2s ease-in-out";
         senhaClasse.style.transition = "opacity 0.2s ease-in-out";
         senhaClasse.style.opacity = 1;
         olhoIcone.style.opacity = 1;
@@ -50,34 +66,25 @@ botaoIcone.forEach(botao => {
 });
 
 
-// Animação dos input
-const campoInput = document.querySelectorAll("input");
-
-campoInput.forEach(input => {
-    input.addEventListener("focus", function () {
-        const campoLabel = this.closest("label").querySelector("span");
-        campoLabel.style.transform = "translate(0, 0) scale(0.875)";
-        campoLabel.style.color = "var(--cor-cinza-escuro)";
-    });
-    input.addEventListener("blur", function () {
-        const campoLabel = this.closest("label").querySelector("span");
-        if (input.value.trim() === "") {
-            campoLabel.style.transform = "translate(0.5rem, 2rem) scale(1)";
-            campoLabel.style.color = "var(--cor-texto-principal)";
-        }
-    });
-});
-
-
 // Ativa/desativa requisitos de senha
 const senhaCriada = document.querySelector(".sign__senha-input");
 const areaRequisitos = document.querySelector(".sign__senha-requisitos");
+const listaIcones = document.querySelectorAll(".botao__icone");
 const listaReq = document.querySelectorAll(".requisito");
+const listaImg = document.querySelectorAll(".requisito img");
 
 senhaCriada.addEventListener("focus", function () {
-    areaRequisitos.style.display = "block";
-    setTimeout(() => {
-        areaRequisitos.style.opacity = 1;
+    areaRequisitos.style.display = "flex";
+    requestAnimationFrame(() => {
+        areaRequisitos.style.opacity = "1";
+        areaRequisitos.style.flexDirection = "column";
+        areaRequisitos.style.gap = "0.25rem";
+    });
+});
+
+listaIcones.forEach(botao => {
+    botao.addEventListener("mousedown", function(evento) {
+        evento.preventDefault();
     });
 });
 
@@ -92,37 +99,50 @@ senhaCriada.addEventListener("input", function () {
     const requisitos = [/[A-Z]/, /[a-z]/, /\d/, /[\W_]/, /.{8,}/];
 
     requisitos.forEach((requisito, index) => {
-        listaReq[index].style.color = senhaCriada.value.match(requisito) ? "var(--cor-azul)" : "var(--cor-vermelha)";
+        if (senhaCriada.value.match(requisito)) {
+            listaReq[index].style.color = "var(--cor-azul)";
+            listaImg[index].src = "/media/icons/Certo.svg";
+        } else {
+            listaReq[index].style.color = "var(--cor-vermelha-erro)";
+            listaImg[index].src = "/media/icons/Errado.svg";
+        }
     });
 });
 
 
-// Armazenamento de contas cadastradas
-document.querySelector("#cadastrarConta").addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const usuario = {
-        email: document.querySelector("#sign-email").value,
-        senha: document.querySelector("#sign-senha").value,
-    };
-
-    localStorage.setItem("usuarioCadastrado", JSON.stringify(usuario));
-
-    alert("Conta cadastrada com sucesso!");
+// Código temporário
+document.getElementById("entrar-conta").addEventListener("submit", function (evento) {
+    evento.preventDefault(evento);
+    window.location.assign("forms.html");
 });
 
 
-// Verificação de contas cadastradas
-document.querySelector("#entrarConta").addEventListener("submit", function (event) {
-    event.preventDefault();
+// // Armazenamento de contas cadastradas
+// document.getElementById("cadastrar-conta").addEventListener("submit", function (event) {
+//     event.preventDefault();
 
-    const emailDigitado = document.querySelector("#login-email").value;
-    const senhaDigitada = document.querySelector("#login-senha").value;
-    const usuarioSalvo = JSON.parse(localStorage.getItem("usuarioCadastrado"));
+//     const usuario = {
+//         email: document.getElementById("sign-email").value,
+//         senha: document.getElementById("sign-senha").value,
+//     };
 
-    if (usuarioSalvo && usuarioSalvo.email === emailDigitado && usuarioSalvo.senha === senhaDigitada) {
-        window.location.href = "forms.html";
-    } else {
-        alert("E-mail ou senha incorretos!");
-    }
-});
+//     localStorage.setItem("usuarioCadastrado", JSON.stringify(usuario));
+
+//     alert("Conta cadastrada com sucesso!");
+// });
+
+
+// // Verificação de contas cadastradas
+// document.getElementById("entrar-conta").addEventListener("submit", function (event) {
+//     event.preventDefault();
+
+//     const emailDigitado = document.getElementById("login-email").value;
+//     const senhaDigitada = document.getElementById("login-senha").value;
+//     const usuarioSalvo = JSON.parse(localStorage.getItem("usuarioCadastrado"));
+
+//     if (usuarioSalvo && usuarioSalvo.email === emailDigitado && usuarioSalvo.senha === senhaDigitada) {
+//         window.location.href = "forms.html";
+//     } else {
+//         alert("E-mail ou senha incorretos!");
+//     }
+// });
