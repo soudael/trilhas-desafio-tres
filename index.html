@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="icon" href="/media/icons/Flavicon.svg">
+    <link rel="stylesheet" href="/styles/reset.css">
     <link rel="stylesheet" href="/styles/main.css">
     <title>Home</title>
 </head>
@@ -16,44 +16,53 @@
         <section class="conteudo">
             <section class="baloes">
                 <section class="balao__direito">
-                    <section class="balao__campo">
-                        <img src="./assets/imgs/BalaoDeTextoCima.svg" alt="Balão de Texto">
-                        <span class="label__direita">É jovem <strong>maranhense?</strong></span>
+                    <section class="campo">
+                        <img class="balao__direito-imagem" src="/media/images/BalaoDireito.svg" alt="Balão de Texto">
+                        <span class="label__direita label">
+                            É jovem <strong class="destaque">maranhense?</strong>
+                        </span>
                     </section>
                 </section>
                 <section class="balao__esquerdo">
-                    <section class="balao__campo">
-                        <img src="./assets/imgs/BalaoDeTextoBaixo.svg" alt="Balão de Texto">
-                        <span class="label__esquerda">Quer aprendizagem de <strong>qualidade</strong> na área de <strong>tecnologia?</strong></span>
+                    <section class="campo">
+                        <img class="balao__esquerdo-imagem" src="/media/images/BalaoEsquerdo.svg" alt="Balão de Texto">
+                        <span class="label__esquerda label">
+                            Quer aprendizagem de <strong class="destaque">qualidade</strong>
+                            na área de <strong class="destaque">tecnologia?</strong>
+                        </span>
                     </section>
                 </section>
+
                 <section class="adesivo__trilhas">
-                    <img src="./assets/imgs/StickerTags.svg" alt="Adesivo Trilhas">
+                    <img class="adesivo__trilhas-imagem" src="/media/images/StickerTags.svg" alt="Adesivo do Trilhas">
                 </section>
                 <section class="adesivo__controle">
-                    <img src="./assets/imgs/StickerControle.svg" alt="Adesivo Controle">
+                    <img class="adesivo__controle-imagem" src="/media/images/StickerControle.svg" alt="Adesivo de Controle">
                 </section>
             </section>
 
             <section class="chamada">
                 <section class="chamada__campo">
-                    <h2>Vem pro</h2>
-                    <img src="./media/images/LogoTrilhas.svg" alt="Logo do Trilhas">
+                    <h2 class="chamada__texto">Vem pro</h2>
+                    <img class="logo__central" src="/media/images/LogoTrilhas.svg" alt="Logo do Trilhas">
                 </section>
 
-                <a href="tela-login-teste.html">Inscreva-se</a>
+                <section class="botoes">
+                    <a class="botao__inscrever" href="/forms.html">Inscreva-se</a>
+                    <a class="botao__login" href="/loginSign.html">Já se inscreveu? Clique para fazer login!</a>
+                </section>
             </section>
         </section>
         </section>
 
         <section class="faixas">
-            <img class="faixa__esquerda" src="./assets/imgs/FaixasEsquerda.svg" alt="Faixas Trilhas">
-            <img class="faixa__direita" src="./assets/imgs/FaixasDireita.svg" alt="Faixas Trilhas">
+            <img class="faixas__imagem" src="/media/images/FaixasEsquerda.svg" alt="Faixas Trilhas">
+            <img class="faixas__imagem" src="/media/images/FaixasDireita.svg" alt="Faixas Trilhas">
         </section>
     </main>
 
-    <footer>
-        <img src="./media/images/LogoTrilhasInovaAzul.svg" alt="Logo Trilhas Inova">
+    <footer class="footer">
+        <img class="logo__footer" src="/media/images/LogoTrilhasInovaAzul.svg" alt="Logo Trilhas Inova">
     </footer>
 </body>
 </html>

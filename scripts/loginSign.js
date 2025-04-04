@@ -14,12 +14,14 @@ const alturaLog = `${telaLogin.offsetHeight / 16}rem`;
 
 // Transição de tela entre o Login e Cadastro - Parte 2
 const cadastrarBotao = document.querySelectorAll(".botao__simples");
+const tituloDaPagina = document.querySelector("title");
 
 let telaAtual = 1;
 cadastrarBotao.forEach(botao => {
     botao.addEventListener("click", function () {
         if (telaAtual == 1) {
             telaAtual = 2;
+            tituloDaPagina.innerHTML = "Sign Up";
             telaCadastro.style.transform = "translate(0, 0)";
 
             telaLogin.style.height = getComputedStyle(telaLogin).height;
@@ -28,6 +30,7 @@ cadastrarBotao.forEach(botao => {
             telaLogin.style.height = "var(--altura-tela-cadastro)";
         } else {
             telaAtual = 1;
+            tituloDaPagina.innerHTML = "Login";
             telaCadastro.style.transform = "translate(100%, 0)";
             telaLogin.style.height = `${alturaLog}`;
         }

@@ -234,7 +234,7 @@ button {
     transition: transform 0.2s ease-out;
 }
 .botao__destaque:hover {
-    transform: scale(0.9);
+    transform: scale(0.95);
 }
 
 .botao__simples {
@@ -406,7 +406,6 @@ button {
 .visuais {
     animation: levitar 15s ease-in-out infinite;
 }
-
 
 @keyframes respirar {
     0% {

@@ -1,39 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --cor-branca: #FFFFFF;
-    --cor-laranja: #E43A12;
-    --cor-laranja-claro: #F3541C;
+    --cor-laranja: #F3541C;
+    --cor-laranja-forte: #E43A12;
+    --cor-superficie-primaria: #FFFFFF;
     
     --fonte-poppins: "Poppins", sans-serif;
 }
 
+
 * {
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
     text-decoration: none;
 }
-
 body {
-    background-image: url(../media/images/Background.png);
+    width: 100%;
+    height: 100%;
+
+    background-image: url(/media/images/Background.png);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
 }
-
 main {
     position: relative;
-}
-
-footer {
-    background-color: var(--cor-branca);
-    display: flex;
-    justify-content: center;
-    padding: 4% 0;
+    font-family: "Poppins", sans-serif;
 }
 
 
+/* Configurações gerais de tela */
 .home {
     padding: 12% 7.5% 18.5% 7.5%;
 }
@@ -46,235 +42,180 @@ footer {
     gap: 11.875rem;
     width: 100%;
 }
-.label__direita {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: right;
+
+
+/* Configurações gerais de elementos */
+.campo {
     width: 100%;
-    padding-right: 5rem;
-    margin: -0.625rem;
-}
-.label__esquerda {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: left;
-    width: 100%;
-    padding-left: 5rem;
-    margin: -0.625rem;
+    position: relative;
+    display: inline-block;
 }
 
+.label {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 1%;
+
+    line-height: 140%;
+    font-weight: 600;
+    font-size: 2.25rem;
+}
+.destaque{
+    color: var(--cor-laranja-forte);
+}
+
+.faixas__imagem {
+    width: 30rem;
+}
+
+
+/* Balões*/
 .baloes {
+    position: relative;
     width: 100%;
     max-width: 1280px;
-    position: relative;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1.875rem;
 }
-.balao__direito {
-    padding-left: 40%;
-}
 .balao__esquerdo {
     padding-right: 40%;
 }
-
-
-.balao__campo {
-    width: auto;
-    position: relative;
-    display: inline-block;
+.balao__direito {
+    padding-left: 40%;
 }
-.balao__campo img {
-    width: auto;
-    display: block;
-}
-.balao__campo span {
-    font-family: var(--fonte-poppins);
-    font-weight: 600;
-    font-size: 2.25rem;
 
-    box-sizing: border-box;
+.label__esquerda {
+    text-align: left;
+    padding-left: 10%;
 }
-.balao__campo span strong {
-    color: var(--cor-laranja);
-    font-weight: 600;
+.label__direita {
+    text-align: right;
+    padding-right: 11%;
 }
 
 
+/* Adesivos */
 .adesivo__trilhas {
     position: absolute;
     top: 85%;
     right: 2%;
 }
-
+.adesivo__trilhas-imagem {
+    width: 100%;
+    height: auto;
+}
 
 .adesivo__controle {
     position: absolute;
     bottom: 80%;
     left: 11%;
 }
-.adesivo__controle img {
+.adesivo__controle-imagem {
     width: 60%;
+    height: auto;
 }
 
 
+/* Área da logo central */
 .chamada {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5.5rem;
 }
+
 .chamada__campo {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    color: var(--cor-branca);
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-
     gap: 1.375rem;
 }
-.chamada__campo img {
+
+.chamada__texto {
+    color: var(--cor-superficie-primaria);
+    font-weight: bold;
+    font-size: 2.5rem;
+    line-height: 140%;
+}
+
+.logo__central {
     width: 42.5rem;
-    height: auto;
+    height: 100%;
 }
 
 
-.chamada a {
-    background-color: var(--cor-laranja);
-    width: 21.875rem;
-    padding: 1rem 0;
+/* Botões */
+.botoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.botao__inscrever {
+    width: 28rem;
+    background-color: var(--cor-laranja-forte);
     border-radius: 1rem;
+    padding: 0.75rem 1.5rem;
 
-    color: var(--cor-branca);
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
+    color: var(--cor-superficie-primaria);
+    font-weight: bold;
+    font-size: 2rem;
     text-align: center;
-    box-shadow: 0 0.5rem 0.25rem rgba(0, 0, 0, 0.3);
+    line-height: 150%;
 
-    transition: background-color 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 }
-.chamada a:hover {
-    background-color: var(--cor-laranja-claro);
+.botao__inscrever:hover {
+    transform: scale(1.1);
+}
+
+.botao__login {
+    color: var(--cor-superficie-primaria);
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 150%;
+
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+.botao__login:hover {
+    transform: scale(1.05);
 }
 
 
-.faixa__esquerda {
+/* Faixas */
+.faixas {
     position: absolute;
-    width: 30rem;
-    left: 0;
+    width: 100%;
     bottom: 0;
-}
-.faixa__direita {
-    position: absolute;
-    width: 30rem;
-    right: 0;
-    bottom: 0;
+
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
 }
 
 
-@media (max-width: 1080px) {
-    html {
-        width: 100vw;
-        height: 100vh;
-    }
+/* Rodapé */
+.footer {
+    width: 100%;
+    background-color: var(--cor-superficie-primaria);
+    padding: 3.5rem;
 
-    .adesivo__trilhas, .adesivo__controle, .faixas__esquerda, .faixas__direita {
-        display: none;
-    }
-
-    .baloes {
-        gap: 6.25rem;
-    }
-    .balao__direito, .balao__esquerdo {
-        padding: 0;
-    }
-
-    .chamada {
-        gap: 8.125rem;
-    }
-    .chamada__campo {
-        gap: 2.5rem;
-    }
-
-    footer {
-        margin-top: 25%;
-    }
-    footer img {
-        width: 25rem;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-@media (max-width: 720px) {
-    .chamada__campo img {
-        width: 30rem;
-        height: auto;
-    }
-
-    .balao__campo img {
-        width: 30rem;
-        height: auto;
-    }
-    .balao__campo span {
-        font-size: 1.5rem;
-    }
-
-    footer img {
-        width: 20rem;
-    }
-}
-
-@media (max-width: 530px) {
-    .conteudo {
-        gap: 100px;
-    }
-
-    .baloes {
-        gap: 25px;
-    }
-
-    .balao__campo img {
-        width: 300px;
-    }
-    .balao__campo span {
-        font-size: 1rem;
-    }
-
-    .label__direita {
-        padding-top: 0.5rem;
-        padding-right: 2.5rem;
-    }
-    .label__esquerda {
-        padding-top: 0.5rem;
-        padding-left: 2.5rem;
-    }
-
-    .chamada__campo img {
-        width: 20rem;
-    }
-    .chamada a {
-        width: 15rem;
-    }
-
-    footer img {
-        width: 15rem;
-    }
-}
-
-@media (max-width: 350px) {
-    .chamada__campo{
-        font-size: 1rem;
-    }
-    .chamada__campo img {
-        width: 15rem;
-    }
+.logo__footer {
+    width: 28rem;
 }
