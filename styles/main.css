@@ -1,10 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
+    --cor-azul: #2135A6;
+    --cor-laranja-pastel: #F67841;
     --cor-laranja: #F3541C;
     --cor-laranja-forte: #E43A12;
+
+    --cor-texto-primario: #292524;
+    --cor-texto-secundario: #57534E;
+    --cor-texto-terciario: #8F8881;
+    --cor-texto-destaque: #E43A12;
+
     --cor-superficie-primaria: #FFFFFF;
-    
+    --cor-superficie-secundaria: #FEE7D6;
+    --cor-superficie-desativada: #E7E5E4;
+
+    --cor-borda: #D6D3D1;
+    --cor-borda-destaque: #F3541C;
+
+    --cor-vermelha-erro: #DC2626;
+
     --fonte-poppins: "Poppins", sans-serif;
 }
 

@@ -5,220 +5,212 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/media/icons/Flavicon.svg">
-    <link rel="prefetch" href="/media/icons/SetaEsquerdaLaranja.svg">
+    <link rel="stylesheet" href="/styles/reset.css">
     <link rel="stylesheet" href="/styles/forms.css">
     <script src="/scripts/forms.js" defer></script>
-    <title>Formulário</title>
+    <title>Forms</title>
 </head>
 
 <body>
-    <section class="background">
-        <img class="background__ilustracao" src="/media/images/Ilustracao.svg" alt="Ilustracao">
-        <img class="background__logo" src="/media/images/LogoTrilhasInovaBranco.svg" alt="Logo Trilhas Inova">
-    </section>
-
     <main>
-        <section class="forms">
+        <section class="home">
+        <form class="formulario" id="formulario">
+            <section class="introducao">
+                <button class="botao__voltar" type="button">
+                    <img class="seta" src="/media/icons/Seta.svg" alt="Seta">
+                    <span class="voltar">Voltar</span>
+                </button>
 
-        <section class="forms__introducao">
-            <a class="forms__introducao__voltar" id="link-voltar" href="index.html">
-                <img id="seta-laranja" src="/media/icons/SetaEsquerdaLaranja.svg" alt="Voltar">
-                <img id="seta-cinza" src="/media/icons/SetaEsquerdaCinza.svg" alt="Voltar">
-                <span class="forms__introducao__label">Voltar</span>
-            </a>
-            <section class="forms__introducao__texto">
-                <h1 class="forms__introducao__titulo">Formulário de inscrição</h1>
-                <h2 class="forms__introducao__label">Preencha os dados abaixo para fazer sua inscrição no Programa Trilhas.</h2>
+                <section class="introducao__campo">
+                    <h1 class="introducao__titulo">Formulário de inscrição</h1>
+                    <h2 class="subtitulo">Preencha os dados abaixo para fazer sua inscrição no Programa Trilhas.</h2>
+                </section>
             </section>
-        </section>
 
-
-        <section class="forms__informacoes">
-            <h1 class="forms__titulo">Informações do participante</h1>
-            <form>
-                <section class="forms__informacoes__foto">
-                    <h2 class="forms__label">Foto do usuário</h2>
+            <section class="informacoes">
+                <h1 class="titulo">Informações do participante</h1>
+                <section class="foto">
+                    <h2 class="label">Foto do usuário</h2>
                     <input type="file" id="foto-perfil" name="FotoDePerfil" hidden>
-                    <label class="forms__upload" for="foto-perfil">
-                        <img class="forms__upload__icone" src="/media/icons/Upload.svg" alt="Upload">
-                        <span class="forms__upload__label">Clique aqui para selecionar o arquivo</span>
+                    <label class="upload" for="foto-perfil">
+                        <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
+                        <span class="upload__label">Clique aqui para selecionar o arquivo</span>
                     </label>
                 </section>
-
-                <section class="forms__informacoes__nome-completo">
-                    <h2 class="forms__label">Nome completo</h2>
-                    <input class="forms__input" id="nome-completo" name="NomeCompleto" placeholder="Insira seu nome completo aqui">
+    
+                <section class="campo__input">
+                    <h2 class="label">Nome completo</h2>
+                    <input class="input" name="nomeCompleto" type="text" autocomplete="name">
                 </section>
 
-                <section class="forms__informacoes__nome-social">
-                    <h2 class="forms__label">Nome social</h2>
-                    <input class="forms__input" id="nome-social" name="NomeSocial" placeholder="Insira seu nome social aqui">
+                <section class="campo__input">
+                    <h2 class="label">Nome social</h2>
+                    <input class="input"name="nomeSocial" type="text" autocomplete="name">
                 </section>
 
-                <section class="forms__informacoes__data">
-                    <h2 class="forms__label">Data de nascimento</h2>
-                    <input class="forms__input" id="data-nascimento" inputmode="numeric" maxlength="10" oninput="formatarData(this)" name="DataDeNascimento" placeholder="DD/MM/AAAA">
+                <section class="campo__input">
+                    <h2 class="label">Data de nascimento</h2>
+                    <input class="input" name="dataDeNascimento" inputmode="numeric" maxlength="10" placeholder="dd/mm/aaaa">
                 </section>
 
-                <section class="forms__informacoes__cpf">
-                    <h2 class="forms__label">CPF</h2>
-                    <input class="forms__input" id="cpf" name="CPFDoUsuario" inputmode="numeric" maxlength="14" oninput="formatarCPF(this)" placeholder="XXX.XXX.XXX-XX">
+                <section class="campo__input">
+                    <h2 class="label">CPF</h2>
+                    <input class="input" name="usuarioCPF" inputmode="numeric" maxlength="14" placeholder="000.000.000-00">
                 </section>
 
-                <section class="forms__informacoes__sexo">
-                    <h2 class="forms__label">Sexo</h2>
-                    <select class="forms__input" id="sexo" name="SexoDoUsuario" style="color: #292524;">
-                        <option value="" disabled selected>Selecione</option>
-                        <option value="Masculino">Masculino</option>
-                        <option value="Feminino">Feminino</option>
-                        <option value="Não-binário">Não-binário</option>
+                <section class="campo__input">
+                    <h2 class="label">Sexo</h2>
+                    <select class="input" name="sexoDoUsuario">
+                        <option value="selecione" disabled selected>Selecione</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="naoBinario">Não-binário</option>
                     </select>
                 </section>
 
-                <section class="forms__informacoes__email">
-                    <h2 class="forms__label">E-mail</h2>
-                    <input class="forms__input" id="email" name="EmailDoUsuario" placeholder="Insira seu e-mail aqui">
+                <section class="campo__input">
+                    <h2 class="label">E-mail</h2>
+                    <input class="input" name="emailDoUsuario" type="email" placeholder="exemplo@gmail.com">
                 </section>
                 
-                <section class="forms__informacoes__telefone">
-                    <h2 class="forms__label">Telefone</h2>
-                    <input class="forms__input" type="tel" id="telefone" name="NumeroDeTelefone" inputmode="numeric" maxlength="15" oninput="formatarTel(this)" placeholder="(XX) XXXXX-XXXX">
+                <section class="campo__input">
+                    <h2 class="label">Telefone</h2>
+                    <input class="input" name="numeroDeTelefone" type="tel" inputmode="numeric" maxlength="15" placeholder="(00) 00000-0000">
                 </section>
                 
-                <section class="forms__informacoes__redes">
-                    <h2 class="forms__label">Redes sociais</h2>
-                    <section class="forms__informacoes__redes__secao" id="redes-sociais">
-                        <input class="forms__input" type="url" id="rede-1" name="rede-social" placeholder="Insira um link">
-                        <button id="adicionar-rede" type="button" onclick=adicionarRedeSocial() hidden>Adicionar</button>
-                        <label class="forms__informacoes__redes__secao__botao" for="adicionar-rede">
-                            <span class="forms__upload__label">+ Novo link</span>
+                <section class="redes">
+                    <h2 class="label">Redes sociais</h2>
+                    <section class="redes__campo" id="redes-sociais">
+                        <input id="rede-1" hidden>
+                        <button id="adicionar-rede" type="button" hidden>Adicionar</button>
+                        <label class="adicionar__rede" for="adicionar-rede">
+                            <span class="upload__label">+ Adicionar</span>
                         </label>
                     </section>
                 </section>
 
-                <section class="forms__informacoes__documento">
-                    <h2 class="forms__label">Documento de identidade</h2>
-                    <input type="file" id="documento-id" name="DocumentoDeIdentidade" hidden>
-                    <label class="forms__upload" for="documento-id">
-                        <img class="forms__upload__icone" src="/media/icons/Upload.svg" alt="Upload">
-                        <span class="forms__upload__label">Clique aqui para selecionar o arquivo</span>
+                <section class="identidade">
+                    <h2 class="label">Documento de identidade</h2>
+                    <input type="file" id="documento-identidade" name="documentoDeIdentidade" hidden>
+                    <label class="upload" for="documento-identidade">
+                        <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
+                        <span class="upload__label">Clique aqui para selecionar o arquivo</span>
                     </label>
                 </section>
-            </form>
-        </section>
-
-
-        <section class="forms__endereco">
-            <h1 class="forms__titulo">Endereço residencial</h1>
-            <form>
+            </section>
+    
+    
+            <section class="endereco">
+                <h1 class="titulo">Endereço residencial</h1>
                 <section>
-                    <h2 class="forms__label">CEP</h2>
-                    <input class="forms__input" id="cep" name="EnderecoCEP" inputmode="numeric" maxlength="9" oninput="formatarCEP(this)" placeholder="XXXXX-XXX">
+                    <h2 class="label">CEP</h2>
+                    <input class="input" name="enderecoCEP" autocomplete="postal-code" inputmode="numeric" maxlength="9" placeholder="00000-000">
                 </section>
 
-                <section class="forms__endereco__secao">
-                    <section class="forms__endereco__secao__esquerda">
-                        <h2 class="forms__label">Rua</h2>
-                        <input class="forms__input" id="rua" name="EnderecoRua">
+                <section class="endereco__casal">
+                    <section class="endereco__input">
+                        <h2 class="label">Rua</h2>
+                        <input class="input" name="enderecoRua" type="text" autocomplete="address-line1">
                     </section>
-                    <section class="forms__endereco__secao__direita">
-                        <h2 class="forms__label">Número</h2>
-                        <input class="forms__input" id="numero-casa" name="NumeroCasa">
-                    </section>
-                </section>
-
-                <section class="forms__endereco__secao">
-                    <section class="forms__endereco__secao__esquerda">
-                        <h2 class="forms__label">Cidade</h2>
-                        <input class="forms__input" id="cidade" name="Cidade">
-                    </section>
-                    <section class="forms__endereco__secao__direita">
-                        <h2 class="forms__label">Estado</h2>
-                        <input class="forms__input" id="estado" name="Estado">
+                    <section class="endereco__input">
+                        <h2 class="label">Número</h2>
+                        <input class="input" name="enderecoCasa" autocomplete="address-line1">
                     </section>
                 </section>
 
-                <section>
-                    <h2 class="forms__label">Comprovante de residência</h2>
-                    <input type="file" id="comprovante" name="ComprovanteResidencia" hidden>
-                    <label class="forms__upload" for="comprovante">
-                        <img class="forms__upload__icone" src="/media/icons/Upload.svg" alt="Upload">
-                        <span class="forms__upload__label">Clique aqui para selecionar o arquivo</span>
+                <section class="endereco__casal">
+                    <section class="endereco__input">
+                        <h2 class="label">Cidade</h2>
+                        <input class="input" name="enderecoCidade" type="text" autocomplete="address-level2">
+                    </section>
+                    <section class="endereco__input">
+                        <h2 class="label">Estado</h2>
+                        <input class="input" name="enderecoEstado" type="text" autocomplete="address-level2">
+                    </section>
+                </section>
+                
+                <section class="comprovante">
+                    <h2 class="label">Comprovante de residência</h2>
+                    <input type="file" id="comprovante" name="comprovanteResidencia" hidden>
+                    <label class="upload" for="comprovante">
+                        <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
+                        <span class="upload__label">Clique aqui para selecionar o arquivo</span>
                     </label>
                 </section>
-            </form>
-        </section>
-
-
-        <section class="forms__trilhas">
-            <h1 class="forms__titulo">Trilhas de aprendizagem</h1>
-            <form class="forms__trilhas__grupo">
-                <h2 class="forms__label" >Selecione apenas uma trilha</h2>
-                <section class="forms__trilhas__secao">
-                    <section class="forms__trilhas__secao__grupo">
-                        <section class="forms__trilhas__secao__grupo__bloco">
-                            <input type="radio" id="front-end" name="TrilhaSelecionada">
-                            <label class="forms__trilhas__secao__grupo__conteudo" for="front-end">
-                                <img src="/media/icons/Frontend.svg" alt="Front-end">
-                                <span>Programação Front-end</span>
+            </section>
+    
+    
+            <section class="trilhas">
+                <h1 class="titulo">Trilhas de aprendizagem</h1>
+                <section class="trilhas__campo">
+                    <h2 class="label">Selecione apenas uma trilha</h2>
+                    <section class="trilhas__casal">
+                        <section class="trilhas__bloco">
+                            <input class="input__radio" type="radio" id="front-end" name="TrilhaSelecionada">
+                            <label class="trilhas__conteudo" for="front-end">
+                                <img class="trilhas__icone" src="/media/icons/Frontend.svg" alt="Front-end">
+                                <span class="trilhas__label">Programação Front-end</span>
                             </label>
                         </section>
-                        <section class="forms__trilhas__secao__grupo__bloco">
-                            <input type="radio" id="back-end" name="TrilhaSelecionada">
-                            <label class="forms__trilhas__secao__grupo__conteudo" for="back-end">
-                                <img src="/media/icons/Backend.svg" alt="Back-end">
-                                <span>Programação Back-end</span>
+                        <section class="trilhas__bloco">
+                            <input class="input__radio" type="radio" id="back-end" name="TrilhaSelecionada">
+                            <label class="trilhas__conteudo" for="back-end">
+                                <img class="trilhas__icone" src="/media/icons/Backend.svg" alt="Back-end">
+                                <span class="trilhas__label">Programação Back-end</span>
                             </label>
                         </section>
                     </section>
 
-                    <section class="forms__trilhas__secao__grupo">
-                        <section class="forms__trilhas__secao__grupo__bloco">
-                            <input type="radio" id="programacao-jogos" name="TrilhaSelecionada">
-                            <label class="forms__trilhas__secao__grupo__conteudo" for="programacao-jogos">
-                                <img class="trilhas__imagem"src="/media/icons/Jogos.svg" alt="Jogos">
-                                <span>Programação de Jogos</span>
+                    <section class="trilhas__casal">
+                        <section class="trilhas__bloco">
+                            <input class="input__radio" type="radio" id="jogos" name="TrilhaSelecionada">
+                            <label class="trilhas__conteudo" for="jogos">
+                                <img class="trilhas__icone" src="/media/icons/Jogos.svg" alt="Jogos">
+                                <span class="trilhas__label">Programação de Jogos</span>
                             </label>
                         </section>
-                        <section class="forms__trilhas__secao__grupo__bloco">
-                            <input type="radio" id="ux-design" name="TrilhaSelecionada">
-                            <label class="forms__trilhas__secao__grupo__conteudo" for="ux-design">
-                                <img class="trilhas__imagem"src="/media/icons/UX.svg" alt="UX Design">
-                                <span>Design e Experiência</span>
+                        <section class="trilhas__bloco">
+                            <input class="input__radio" type="radio" id="ux-design" name="TrilhaSelecionada">
+                            <label class="trilhas__conteudo" for="ux-design">
+                                <img class="trilhas__icone" src="/media/icons/UX.svg" alt="UX Design">
+                                <span class="trilhas__label">Design e Experiência</span>
                             </label>
                         </section>
                     </section>
                     
-                    <section class="forms__trilhas__secao__grupo">
-                        <div class="forms__trilhas__secao__grupo__bloco-unico">
-                            <section class="forms__trilhas__secao__grupo__bloco">
-                                <input type="radio" id="ciencia-dados" name="TrilhaSelecionada">
-                                <label class="forms__trilhas__secao__grupo__conteudo" for="ciencia-dados">
-                                    <img class="trilhas__imagem"src="/media/icons/Dados.svg" alt="Dados">
-                                    <span>Ciência de Dados</span>
-                                </label>
-                            </section>
-                        </div>
+                    <section class="trilhas__casal">
+                        <section class="trilhas__bloco">
+                            <input class="input__radio" type="radio" id="dados" name="TrilhaSelecionada">
+                            <label class="trilhas__conteudo" for="dados">
+                                <img class="trilhas__icone" src="/media/icons/Dados.svg" alt="Front-end">
+                                <span class="trilhas__label">Ciência de Dados</span>
+                            </label>
+                        </section>
                     </section>
                 </section>
-            </form>
+            </section>
+    
+            <section class="termos__condicoes">
+                <input class="botao__checkbox" type="checkbox" name="termosECondicoes">
+                <span class="termos__condicoes-texto subtitulo">
+                    Declaro que li e concordo com os <a class="destaque" href="">Termos e Condições</a>
+                    e com a <a class="destaque" href="">Política de Privacidade</a>.
+                </span>
+            </section>
+
+            <button class="botao__submit" type="submit">Fazer inscrição</button>
+        </form>
+    
+        <section class="visuais">
+            <section class="arte">
+                <img class="ilustracao" src="/media/images/Ilustracao.svg" alt="Ilustracao">
+                <img class="logo" src="/media/images/LogoTrilhasInovaBranco.svg" alt="Logo Trilhas Inova">
+            </section>
         </section>
-
-
-        <section class="forms__termos">
-            <input type="checkbox" id="termos" name="TermosCondicoes">
-            <label for="termos">
-                <span class="forms__termos__texto">Declaro que li e concordo com os <a href="">Termos e Condições</a> e com a <a href="">Política de Privacidade</a>.</span>
-            </label>
-        </section>
-
-
-        <section class="forms__botoes">
-            <button class="forms__botoes__cancelar" type="button">Cancelar</button>
-            <button class="forms__botoes__inscricao" type="button">Fazer inscrição</button>
-        </section>
-
         </section>
     </main>
+    <footer class="footer">
+        <img class="logo__footer" src="/media/images/LogoTrilhasInovaAzul.svg" alt="Logo Trilhas Inova">
+    </footer>
 </body>
 </html>
