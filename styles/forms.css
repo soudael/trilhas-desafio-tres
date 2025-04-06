@@ -440,3 +440,43 @@ button {
     animation: dancar 2s ease infinite;
     animation-delay: 0.5s;
 }
+
+@media (max-width:765px) {
+    .home {
+ flex-direction: column-reverse;
+}
+.ilustracao {
+    width: 7.5rem;
+}
+.logo {
+    width:16.688rem ;
+}
+.arte { 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.188rem;
+}
+
+.formulario {
+    width:fit-content;
+    height: 500vh;
+}
+
+@keyframes levitar {
+    0% {
+        transform: translateY(0.5rem);
+    } 50% {
+        transform: translateY(-0.5rem);
+    } 100% {
+        transform: translateY(0.5rem);
+    }
+}
+.visuais {
+    animation: levitar 15s ease-in-out infinite;
+}
+.logo__footer {
+    display: none;
+}
+
+}
