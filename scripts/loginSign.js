@@ -75,6 +75,7 @@ const areaRequisitos = document.querySelector(".sign__senha-requisitos");
 const listaIcones = document.querySelectorAll(".botao__icone");
 const listaReq = document.querySelectorAll(".requisito");
 const listaImg = document.querySelectorAll(".requisito img");
+let senhaEhValida = true;
 
 senhaCriada.addEventListener("focus", function () {
     areaRequisitos.style.display = "flex";
@@ -86,16 +87,28 @@ senhaCriada.addEventListener("focus", function () {
 });
 
 listaIcones.forEach(botao => {
-    botao.addEventListener("mousedown", function(evento) {
-        evento.preventDefault();
+    botao.addEventListener("mousedown", function(event) {
+        event.preventDefault();
     });
 });
+document.querySelector(".sign__botao-cadastrar").addEventListener("mousedown", function(event) {
+    event.preventDefault();
+})
 
 senhaCriada.addEventListener("blur", function () {
     areaRequisitos.style.opacity = 0;
     setTimeout(() => {
         areaRequisitos.style.display = "none";
     }, 200);
+    
+    for (let i=0; i<listaReq.length; i++) {
+        if (listaReq[i].style.color !== "var(--cor-azul)") {
+            senhaEhValida = false;
+            break;
+        } else {
+            senhaEhValida = true;
+        }
+    }
 });
 
 senhaCriada.addEventListener("input", function () {
@@ -113,39 +126,131 @@ senhaCriada.addEventListener("input", function () {
 });
 
 
-// Código temporário
-document.getElementById("entrar-conta").addEventListener("submit", function (evento) {
-    evento.preventDefault(evento);
-    window.location.assign("forms.html");
+// Verifica validade dos inputs em cadastro
+const signEmail = document.getElementById("sign-email");
+signEmail.addEventListener("blur", () => {
+    if (signEmail.checkValidity() && signEmail.value !== "") {
+        signEmail.style.borderColor = "var(--cor-azul)";
+    } else {
+        signEmail.style.borderColor = "var(--cor-vermelha-erro)";
+    }
+});
+
+const signSenha = document.getElementById("sign-senha");
+const bordaSenha = document.getElementById("borda-senha");
+signSenha.addEventListener("blur", () => {
+    if (senhaEhValida && signSenha.value !== "") {
+        bordaSenha.style.borderColor = "var(--cor-azul)";
+    } else {
+        bordaSenha.style.borderColor = "var(--cor-vermelha-erro)";
+    }
+});
+
+const confirmarSenha = document.getElementById("sign-senha-confirmar");
+const bordaSenhaConfirmar = document.getElementById("borda-senha-confirmar");
+
+confirmarSenha.addEventListener("blur", () => {
+    if ((confirmarSenha.value === signSenha.value) && confirmarSenha.value !== "" && senhaEhValida) {
+        bordaSenhaConfirmar.style.borderColor = "var(--cor-azul)";
+    } else {
+        bordaSenhaConfirmar.style.borderColor = "var(--cor-vermelha-erro)";
+    }
 });
 
 
-// // Armazenamento de contas cadastradas
-// document.getElementById("cadastrar-conta").addEventListener("submit", function (event) {
-//     event.preventDefault();
 
-//     const usuario = {
-//         email: document.getElementById("sign-email").value,
-//         senha: document.getElementById("sign-senha").value,
-//     };
+// Ativar alerta
+const alerta = document.getElementById("alerta-campo");
+const alertaTexto = document.getElementById("alerta-texto");
+let timeoutID = null;
 
-//     localStorage.setItem("usuarioCadastrado", JSON.stringify(usuario));
+function animarAlert() {
+    if (timeoutID !== null) {
+        clearTimeout(timeoutID);
+        timeoutID = null;
+    }
+    alerta.style.transition = "none";
+    alerta.style.transform = "translateY(-100%)";
 
-//     alert("Conta cadastrada com sucesso!");
-// });
+    requestAnimationFrame(() => {
+        alerta.style.transition = "transform 0.5s ease-out";
+        alerta.style.transform = "translateY(0)";
+    });
+    
+    timeoutID = setTimeout(() => {
+        alerta.style.transform = "translateY(-100%)";
+        timeoutID = null;
+    }, 5000);
+}
 
 
-// // Verificação de contas cadastradas
-// document.getElementById("entrar-conta").addEventListener("submit", function (event) {
-//     event.preventDefault();
+// Cadastrar conta
+document.getElementById("cadastrar-conta").addEventListener("submit", function (event) {
+    event.preventDefault();
+    const emailDigitado = document.getElementById("sign-email").value;
+    const senhaDigitada = document.getElementById("sign-senha").value;
 
-//     const emailDigitado = document.getElementById("login-email").value;
-//     const senhaDigitada = document.getElementById("login-senha").value;
-//     const usuarioSalvo = JSON.parse(localStorage.getItem("usuarioCadastrado"));
+    if (emailDigitado === "" || senhaDigitada === "") {
+        alertaTexto.textContent = "Por favor, insira um email ou senha válidos.";
+        animarAlert();
+        return;
+    }
+    if (!senhaEhValida) {
+        alertaTexto.textContent = "A senha não atende aos requisitos.";
+        animarAlert();
+        return;
+    }
 
-//     if (usuarioSalvo && usuarioSalvo.email === emailDigitado && usuarioSalvo.senha === senhaDigitada) {
-//         window.location.href = "forms.html";
-//     } else {
-//         alert("E-mail ou senha incorretos!");
-//     }
-// });
+    const usuario = {
+        email: emailDigitado,
+        senha: senhaDigitada,
+    };
+
+    localStorage.setItem("usuarioCadastrado", JSON.stringify(usuario))
+    alertaTexto.textContent = "Conta cadastrada com sucesso!";
+    alerta.style.transform = "translateY(0)";
+    animarAlert();
+
+    telaAtual = 1;
+    tituloDaPagina.innerHTML = "Login";
+    telaCadastro.style.transform = "translate(100%, 0)";
+    telaLogin.style.height = `${alturaLog}`;
+});
+
+
+// Login com conta
+document.getElementById("entrar-conta").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const emailDigitado = document.getElementById("login-email").value;
+    const senhaDigitada = document.getElementById("login-senha").value;
+
+    if (emailDigitado === "" || senhaDigitada === "") {
+        alertaTexto.textContent = "Por favor, insira seu e-mail e senha.";
+        animarAlert();
+        return;
+    }
+
+    const usuarioSalvo = JSON.parse(localStorage.getItem("usuarioCadastrado"));
+
+    if (usuarioSalvo && usuarioSalvo.email === emailDigitado && usuarioSalvo.senha === senhaDigitada) {
+        window.location.href = "forms.html";
+    } else {
+        alertaTexto.textContent = "E-mail ou senha incorretos.";
+        animarAlert();
+    }
+});
+
+
+// Ativar erros semânticos
+const inputErro = document.querySelectorAll(".input");
+function erroDeCampo (texto) {
+
+}
+
+let novoInput = document.createElement("input");
+novoInput.setAttribute("class", "input");
+
+
+
+secaoInputs.insertBefore(novoInput, botaoAdicionar);

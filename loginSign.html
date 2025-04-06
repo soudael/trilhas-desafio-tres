@@ -13,69 +13,68 @@
 </head>
 <body>
     <main>
-    <section class="alert" style="display: none">
-        <section class="alert__quadrado">
-            <span class="alert__quadrado-texto">Texto de Teste</span>
-        </section>
-    </section>
+    <div class="alert">
+        <div class="alert__campo" id="alerta-campo">
+            <img class="alerta__icone" src="/media/icons/Informacao.svg" alt="Informação">
+            <span class="alert__texto" id="alerta-texto">Conta cadastrada.</span>
+        </div>
+    </div>
 
-    <section class="home">
-    <section class="conteudo">
-        <section class="login__sign">
+    <div class="home">
+    <div class="conteudo">
+        <div class="login__sign">
 
-        <section class="tela tela__login">
+        <form class="tela tela__login" id="entrar-conta">
         <section class="login">
-            <span class="login__titulo titulo">Login</span>
+            <h1 class="login__titulo titulo">Login</h1>
 
-            <section class="login__campo">
+            <div class="login__campo">
                 <label class="login__email label">
-                    <span class="login__email-span span">E-mail</span>
-                    <input class="login__email-input input input__email" type="email" id="login-email" name="loginEmail">
+                    <h3 class="login__email-span span">E-mail</h3>
+                    <input class="login__email-input input input__email" type="email" id="login-email" name="loginEmail" autocomplete="email">
                 </label>
 
                 <label class="login__senha label">
-                    <span class="login__senha-span span">Senha</span>
+                    <h3 class="login__senha-span span">Senha</h3>
 
-                    <section class="login__senha-grupo input__icone">
-                        <input class="login__senha-input input senha" type="password" id="login-senha" name="loginSenha">
-                        <button class="login__senha-icone botao__icone">
+                    <div class="login__senha-grupo input__icone">
+                        <input class="login__senha-input input senha" type="password" id="login-senha" name="loginSenha" autocomplete="current-password">
+                        <button class="login__senha-icone botao__icone" type="button">
                             <img class="icone" src="/media/icons/OlhoAberto.svg">
                         </button>
                         <div class="input__icone-borda"></div>
-                    </section>
+                    </div>
                     <a class="login__senha-recuperar" href="">Esqueceu do seu e-mail ou senha?</a>
                 </label>
-            </section>
+            </div>
 
-            <section class="login__botoes">
-                <form class="login__botao" id="entrar-conta">
-                    <button class="login__botao-login botao__destaque" type="submit">Fazer Login</button>
-                </form>
-                <button class="login__botao-cadastrar botao__simples">Ainda não possui uma conta? Cadastre-se!</button>
-            </section>
+            <div class="login__botoes">
+                <button class="login__botao-login botao__destaque" type="submit">Fazer Login</button>
+                <button class="login__botao-cadastrar botao__simples" type="button">Ainda não possui uma conta? Cadastre-se!</button>
+            </div>
         </section>
-        </section>
+        </form>
         
-        <section class="tela tela__sign">
+        <form class="tela tela__sign" id="cadastrar-conta">
         <section class="sign">
-            <span class="sign__titulo titulo">Cadastro</span>
+            <h2 class="sign__titulo titulo">Cadastro</h2>
 
-            <section class="sign__campo">
+            <div class="sign__campo">
                 <label class="sign__email label">
-                    <span class="sign__email-span span">E-mail</span>
-                    <input class="sign__email-input input input__email" type="email" id="sign-email" name="signEmail" placeholder="exemplo@gmail.com">
+                    <h3 class="sign__email-span span">E-mail</h3>
+                    <input class="sign__email-input input input__email" type="email" id="sign-email" name="signEmail" placeholder="exemplo@gmail.com" autocomplete="email">
                 </label>
 
                 <label class="sign__senha label">
-                    <span class="sign__senha-span span">Senha</span>
+                    <h3 class="sign__senha-span span">Senha</h3>
 
-                    <section class="sign__senha-grupo input__icone">
-                        <input class="sign__senha-input input senha" type="password" id="sign-senha" name="signSenha">
-                        <button class="sign__senha-icone botao__icone">
+                    <div class="sign__senha-grupo input__icone">
+                        <input class="sign__senha-input input senha" type="password" id="sign-senha" name="signSenha" autocomplete="new-password">
+                        <button class="sign__senha-icone botao__icone" type="button">
                             <img class="icone" src="/media/icons/OlhoAberto.svg">
                         </button>
-                        <div class="input__icone-borda"></div>
-                    </section>
+                        <div class="input__icone-borda" id="borda-senha"></div>
+                    </div>
                 </label>
 
                 <ul class="sign__senha-requisitos">
@@ -87,36 +86,38 @@
                 </ul>
 
                 <label class="sign__confirmar label">
-                    <span class="sign__confirmar-span span">Confirme sua senha</span>
-                    <section class="sign__confirmar-grupo input__icone">
+                    <h3 class="sign__confirmar-span span">Confirme sua senha</h3>
+                    <div class="sign__confirmar-grupo input__icone">
                         <input class="sign__confirmar-input input senha" type="password" id="sign-senha-confirmar" name="signConfirmarSenha">
-                        <button class="sign__confirmar-icone botao__icone">
+                        <button class="sign__confirmar-icone botao__icone" type="button">
                             <img class="icone" src="/media/icons/OlhoAberto.svg">
                         </button>
-                        <div class="input__icone-borda"></div>
-                    </section>
+                        <div class="input__icone-borda" id="borda-senha-confirmar"></div>
+                    </div>
                 </label>
-            </section>
+            </div>
 
             <section class="sign__botoes">
-                <form class="sign__cadastrar" id="cadastrarConta">
-                    <button class="sign__botao-cadastrar cadastrar botao__destaque" type="submit">Cadastre-se</button>
-                </form>
-                <button class="sign__botao-login botao__simples">Já tem uma conta? Faça login!</button>
+                <button class="sign__botao-cadastrar cadastrar botao__destaque" type="submit">Cadastre-se</button>
+                <button class="sign__botao-login botao__simples" type="button">Já tem uma conta? Faça login!</button>
             </section>
         </section>
-        </section>
+        </form>
 
-        </section>
-    </section>
+        </div>
+    </div>
 
-    <section class="visuais">
-        <section class="arte">
+    <div class="visuais">
+        <div class="arte">
             <img class="ilustracao" src="/media/images/Ilustracao.svg">
             <img class="logo" src="/media/images/LogoTrilhasInovaBranco.svg">
-        </section>
-    </section>
-    </section>
+        </div>
+    </div>
+    </div>
     </main>
+
+    <footer class="footer">
+        <img class="logo__footer" src="/media/images/LogoTrilhasInovaAzul.svg" alt="Logo Trilhas Inova">
+    </footer>
 </body>
 </html>
