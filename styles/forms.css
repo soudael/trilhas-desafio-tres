@@ -32,6 +32,7 @@
 }
 body {
     background-color: var(--cor-azul);
+    overflow-x: hidden;
 }
 main {
     width: 100%;
@@ -44,6 +45,54 @@ input {
 button {
     border: none;
     cursor: pointer;
+}
+
+
+/* Alert personalizado */
+.alert {
+    width: 100vw;
+    height: 100vh;
+    
+    position: absolute;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+
+    pointer-events: none;
+}
+
+.alert__campo {
+    width: 40rem;
+    height: 4rem;
+    bottom: 50%;
+
+    border: solid var(--cor-azul) 0.5rem;
+    border-top: none;
+    background-color: var(--cor-superficie-primaria);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-out;
+}
+
+.alerta__icone {
+    width: 1.25rem;
+}
+
+.alert__texto {
+    color: var(--cor-azul);
+    font-size: 1.25rem;
+    font-weight: 500;
+
+    text-align: center;
+    word-wrap: break-word;
 }
 
 
