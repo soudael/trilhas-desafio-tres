@@ -440,16 +440,22 @@ button {
     animation: dancar 2s ease infinite;
     animation-delay: 0.5s;
 }
+/* Aplicação de Responsividade*/
 
-@media (max-width:765px) {
+
+@media (max-width:768px) {
+
+    /* Ajustes na tela*/
+    
     .home {
  flex-direction: column-reverse;
+ justify-content: center;
 }
 .ilustracao {
-    width: 7.5rem;
+    width: 5.25rem;
 }
 .logo {
-    width:16.688rem ;
+    width:12rem ;
 }
 .arte { 
     display: flex;
@@ -460,7 +466,10 @@ button {
 
 .formulario {
     width:fit-content;
+    max-width:100%;
     height: 500vh;
+    border-radius: 0%;
+    padding:1rem;
 }
 
 @keyframes levitar {
@@ -475,8 +484,12 @@ button {
 .visuais {
     animation: levitar 15s ease-in-out infinite;
 }
-.logo__footer {
-    display: none;
+.logo__footer{
+    display:none;
 }
+.footer {
+    display:none;
+}
+
 
 }

@@ -419,3 +419,106 @@ button {
 .botao-acesso:hover {
     animation: respirar 1.5s ease-in-out infinite;
 }
+
+@media (max-width:768px) {
+
+    /*telas ajustes*/
+  .home{
+    width: 100vw;
+    height:100vh;
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items:center;
+  }
+/*tela de login*/
+  .tela__login{
+    height: 100%;
+    max-height: 100vh;
+    min-height: max-content;
+    max-width: 100vw;
+    transition: height 0.3s ease-in-out;
+    padding: 1rem;
+}
+.login__sign {
+    position: relative;
+    width: 48rem;
+    max-width:100vw;
+    height: 95vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: var(--cor-superficie-primaria);
+    border-radius: 0px;
+}
+
+.login {
+    width: 100%;
+    height: 95%;
+    background: inherit;
+    border-radius: inherit;
+
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    align-items: center;
+
+    padding: 4rem 0.5rem;
+    gap: 1.5rem;
+
+    transition: transform 0.5s ease-in-out;
+}
+/*tela cadastro*/
+.tela__sign{
+    height: 100%;
+    max-height: 100vh;
+    min-height: max-content;
+    max-width: 100vw;
+    padding: 1rem;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out, height 0.3s ease-in-out;;
+}
+
+.sign{
+    width: 100%;
+    height: 95%;
+    background: inherit;
+    border-radius: inherit;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    padding: 4rem 0.5rem;
+    gap: 1.5rem;
+
+    transition: transform 0.5s ease-in-out;
+}
+
+  /*imagem*/
+  @keyframes levitar {
+    0% {
+        transform: translateY(0.5rem);
+    } 50% {
+        transform: translateY(-0.5rem);
+    } 100% {
+        transform: translateY(0.5rem);
+    }
+}
+.visuais {
+    animation: levitar 15s ease-in-out infinite;
+}
+.ilustracao {
+    width: 5.25rem;
+}
+.logo {
+    width:12rem ;
+}
+.arte { 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.188rem;
+}
+}
