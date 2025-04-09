@@ -77,4 +77,4 @@ Esta é a parte central do projeto. O formulário solicita informações como:
 
 > _Observação: após a inscrição, o sistema imaginariamente leva o usuário a uma área para acompanhar sua inscrição (funcionalidade ainda em desenvolvimento)._
 
-#### Todos os dados inseridos passam por validações antes de serem armazenados localmente. O objetivo é garantir a integridade e clareza das informações fornecidas pelo usuário.
+**Todos os dados inseridos passam por validações antes de serem armazenados localmente. O objetivo é garantir a integridade e clareza das informações fornecidas pelo usuário.**
