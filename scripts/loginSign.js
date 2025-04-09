@@ -1,3 +1,37 @@
+// loginSign.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const telaLogin    = document.querySelector('.tela__login');
+    const telaCadastro = document.querySelector('.tela__sign');
+  
+    // Ajusta altura (você já faz isso depois; pode mover pra cá se quiser)
+    const alturaLog = `${telaLogin.offsetHeight / 16}rem`;
+    document.documentElement.style.setProperty('--altura-tela-login', alturaLog);
+  
+    function atualizarViewPorHash() {
+      if (location.hash === '#cadastro') {
+        telaLogin.style.transform    = 'translateX(-100%)';
+        telaCadastro.style.transform = 'translateX(0)';
+        document.title = 'Sign Up';
+      } else {
+        telaLogin.style.transform    = 'translateX(0)';
+        telaCadastro.style.transform = 'translateX(100%)';
+        document.title = 'Login';
+      }
+    }
+  
+    // Escuta mudança de hash (voltar/avançar + links)
+    window.addEventListener('hashchange', atualizarViewPorHash);
+    atualizarViewPorHash();
+  
+    // Botões internos passam o hash em vez de disparar sua lógica original
+    document.querySelector('.login__botao-cadastrar')
+      .addEventListener('click', () => { location.hash = 'cadastro'; });
+    document.querySelector('.sign__botao-login')
+      .addEventListener('click', () => { location.hash = 'login'; });
+  });
+  
+
 // Transição de tela entre o Login e Cadastro - Parte 1
 const telaLogin = document.querySelector(".tela__login");
 const telaCadastro = document.querySelector(".tela__sign");
@@ -297,7 +331,7 @@ document.getElementById("entrar-conta").addEventListener("submit", function (eve
     );
 
     if (usuarioEncontrado) {
-        window.location.href = "forms.html";
+        window.location.href = "acordoAssinado.html";
     } else {
         alertaTexto.textContent = "E-mail ou senha incorretos.";
         animarAlert();

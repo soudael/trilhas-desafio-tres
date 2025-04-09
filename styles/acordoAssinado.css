@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Horrorfind';
     src: url('/media/horrorfind_horrorma.zip') format('woff2');
-  }
+}
 
 body{
     font-family: "Horrorfind";
@@ -11,10 +11,13 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-a{
+
+a {
   all:unset;
   font-size: 66.6px;
+  cursor: pointer;
 }
+
 .medo{
   gap: 20px;
   padding: 4rem;
@@ -29,6 +32,7 @@ a{
   text-shadow: 1rem 1rem 2rem red;
   letter-spacing: 5px;
 }
+
 h2{
   font-size: 3.33rem;
 }

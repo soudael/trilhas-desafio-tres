@@ -192,6 +192,8 @@ formulario.addEventListener("submit", function (event) {
         animarAlert();
         console.log("Rodou telefone ruim");
     }
+    alert("Parabéns! Conta criada com sucesso.");
+    window.location.href = "acordoAssinado.html";
 });
 
 // Função para validar o telefone
