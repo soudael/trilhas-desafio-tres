@@ -27,6 +27,7 @@
 * {
     box-sizing: border-box;
     text-decoration: none;
+   /* outline: 1px solid red !important;*/
 }
 body {
     width: 100%;
@@ -103,6 +104,12 @@ main {
 }
 .balao__esquerdo {
     padding-right: 40%;
+}
+.balao__esquerdo-imagem-mobile{
+    display: none;
+}
+.balao__direito-imagem-mobile{
+    display: none;
 }
 .balao__direito {
     padding-left: 40%;
@@ -233,4 +240,181 @@ main {
 }
 .logo__footer {
     width: 28rem;
+}
+
+@media (max-width:768px) {
+
+    body {
+        max-width:100vw;
+        max-height:100vh;
+    }
+ 
+    .home{
+        max-width: 768px;
+        margin: 0 auto;
+        padding: 4rem 1rem 0 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .conteudo{
+        gap: 4rem;
+    }
+    /*parte central */
+    .chamada{
+        gap: 2rem;
+        max-width: 100vw;
+        max-height: 100vh;
+    }
+    .chamada__campo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        gap: 1.375rem;
+    }
+    .logo__central{
+        max-width: 100vw;
+        height: auto;
+        display: block;
+        width: 90vw;
+    }
+    .chamada__texto{
+        font-size: clamp(1.5rem, 2vw + 1rem, 1.875rem);
+    }
+    /*baloes*/
+    
+    .baloes {
+        position: relative;   
+        padding: 0%;   
+    }
+    .campo {
+        display: flex;
+        position: relative;
+        width: fit-content;
+      }
+      .balao__direito {
+        width: 90vw;
+        height: auto;
+        display: flex;
+        padding: 0;
+        margin-left: 10%;
+        justify-content: flex-end;
+      }
+      .balao__direito-imagem{
+     display: none;
+      }
+      .balao__direito-imagem-mobile{
+        max-width: 100%;
+        height: auto;
+        display: block;
+        
+    }
+      .balao__esquerdo {
+        width: 90vw;
+        height: auto;
+        display:block;
+        padding: 0%;
+        margin-right: 10%;
+
+      }
+      .balao__esquerdo-imagem{
+      display: none;
+      }
+      .balao__esquerdo-imagem-mobile{
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+      
+      /*labels*/
+      .label {
+        position: absolute;
+        box-sizing: border-box;
+        width: 100%;
+    
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding-bottom: 1%;
+    
+        line-height: 140%;
+        font-weight: 600;
+        font-size:1rem;
+      }
+      .label__direita {
+        width: fit-content;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0;
+        justify-content:flex-end;
+        font-size: clamp(0.75rem, 2vw + 1rem, 1.3rem);
+        line-height: 1.3;
+      }
+      .label__esquerda {
+        width: max-content;
+        max-width: 16.5rem;
+        height:fit-content;
+        max-height: 8.764rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0;
+        font-size: clamp(0.75rem, 2vw + 1rem, 1.3rem);
+        line-height: 1.4;
+      }
+      
+      /*botoes*/
+        .botoes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.938rem;
+            padding: 2rem;
+        }
+        
+        .botao__inscrever {
+            width:max-content;
+        
+            font-size: 1.375;
+            line-height: 150%;
+        
+            transition: transform 0.2s ease-in-out;
+        }
+        .botao__login {
+            font-size: clamp(0.75rem, 2vw + 1rem, 1rem);
+            font-weight: 600;
+            line-height: 150%;        
+        }
+      
+    /*faixas*/
+    .faixas{
+        position: relative;
+        max-width: 100vw;
+    }
+    .faixas__imagem{
+        max-width: 50%;
+        height: auto;
+        display: block;
+    }
+    /*footer*/
+    .logo__footer{
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    .footer{
+       max-width: 100vw;
+       width: 100%;
+       padding: 2rem;
+    }
+    .adesivo__controle{
+        display: none;
+    }
+    .adesivo__trilhas{
+        display: none;
+    }
+
 }
