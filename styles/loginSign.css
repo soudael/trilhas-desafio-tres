@@ -542,4 +542,7 @@ button {
     align-items: center;
     gap: 2.188rem;
 }
+.logo__footer {
+    width: 16rem;
+}
 }

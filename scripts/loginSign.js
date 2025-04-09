@@ -1,7 +1,7 @@
 // loginSign.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    const telaLogin    = document.querySelector('.tela__login');
+    const telaLogin = document.querySelector('.tela__login');
     const telaCadastro = document.querySelector('.tela__sign');
   
     // Ajusta altura (você já faz isso depois; pode mover pra cá se quiser)
@@ -301,11 +301,7 @@ document.getElementById("cadastrar-conta").addEventListener("submit", function (
     alertaTexto.textContent = "Conta cadastrada com sucesso!";
     alerta.style.transform = "translateY(0)";
     animarAlert();
-
-    telaAtual = 1;
-    tituloDaPagina.innerHTML = "Login";
-    telaCadastro.style.transform = "translate(100%, 0)";
-    telaLogin.style.height = `${alturaLog}`;
+    window.location.href = "forms.html";
 });
 
 
