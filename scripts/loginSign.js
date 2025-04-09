@@ -1,5 +1,4 @@
-// loginSign.js
-
+// Cria URL específico para cada tela
 document.addEventListener('DOMContentLoaded', () => {
     const telaLogin = document.querySelector('.tela__login');
     const telaCadastro = document.querySelector('.tela__sign');
@@ -192,7 +191,6 @@ confirmarSenha.addEventListener("blur", () => {
 });
 
 
-
 // Ativar alerta
 const alerta = document.getElementById("alerta-campo");
 const alertaTexto = document.getElementById("alerta-texto");
@@ -216,6 +214,14 @@ function animarAlert() {
         timeoutID = null;
     }, 5000);
 }
+
+
+// Recuperar e-mail ou senha
+const recuperarInfo = document.getElementById("recuperar-info");
+recuperarInfo.addEventListener("click", () => {
+    alertaTexto.textContent = "Ooohhh tadinhoo, elu exqueceu os dadinhos delu gentix 🥹 cotadinhe, chama a mamain chama 🥹🥹";
+    animarAlert();
+});
 
 
 // Ativar erros semânticos

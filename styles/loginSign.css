@@ -287,6 +287,8 @@ button {
 }
 
 .login__senha-recuperar {
+    all: unset;
+    line-height: 150%;
     color: var(--cor-texto-destaque);
     font-size: 1rem;
     font-weight: 500;

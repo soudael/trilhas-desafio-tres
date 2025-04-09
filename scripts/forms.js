@@ -196,11 +196,13 @@ formulario.addEventListener("submit", function (event) {
     window.location.href = "acordoAssinado.html";
 });
 
+
 // Função para validar o telefone
 function validarCelular(numero) {
     const regex = /^[1-9]{2}9[6-9]\d{7}$/;
     return regex.test(numero);
 }
+
 
 // Função para verificar se a data é válida
 function verificarData(valor) {
@@ -223,6 +225,7 @@ function verificarData(valor) {
 
     return true;
 }
+
 
 // Função para verificar se o CPF existe
 function validarCPF(cpf) {

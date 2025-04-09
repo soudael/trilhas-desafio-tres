@@ -1,29 +1,29 @@
 @font-face {
-    font-family: 'Horrorfind';
-    src: url('/media/horrorfind_horrorma.zip') format('woff2');
+  font-family: "Horrorfind";
+  src: url("/media/horrorfind_horrorma.zip") format("woff2");
 }
 
-body{
-    font-family: "Horrorfind";
-    background-image: url(/media/images/Mansaododjabo.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+body {
+  font-family: "Horrorfind";
+  background-image: url(/media/images/Mansaododjabo.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 a {
-  all:unset;
+  all: unset;
   font-size: 66.6px;
   cursor: pointer;
 }
 
-.medo{
+.medo {
   gap: 20px;
   padding: 4rem;
   font-size: 66.6px;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   text-decoration: none;
@@ -33,7 +33,6 @@ a {
   letter-spacing: 5px;
 }
 
-h2{
+h2 {
   font-size: 3.33rem;
 }
-
