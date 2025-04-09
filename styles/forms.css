@@ -121,6 +121,28 @@ button {
     gap: 3rem;
 }
 
+.area__envio {
+    margin-bottom: 1.5rem;
+}
+.upload__campo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.upload__input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    opacity: 0;
+    pointer-events: none;
+}
+
 
 /* Configurações gerais de elementos */
 .titulo {
@@ -167,6 +189,8 @@ button {
 }
 
 .upload {
+    width: 100%;
+    height: 100%;
     border: dashed var(--cor-borda) 0.125rem;
     border-radius: 0.5rem;
     padding: 1.5rem 1rem;

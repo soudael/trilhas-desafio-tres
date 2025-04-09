@@ -36,13 +36,17 @@
 
             <section class="informacoes">
                 <h1 class="titulo">Informações do participante</h1>
-                <section class="foto">
+                <section class="foto area__envio" style="position: relative;">
                     <h2 class="label">Foto do usuário</h2>
-                    <input type="file" id="foto-perfil" name="FotoDePerfil">
-                    <label class="upload" for="foto-perfil">
-                        <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
-                        <span class="upload__label">Clique aqui para selecionar o arquivo</span>
-                    </label>
+                    <div class="upload__campo">
+                        <div class="upload__input">
+                            <input type="file" id="foto-perfil" name="FotoDePerfil">
+                        </div>
+                        <label class="upload" for="foto-perfil" style="width: 100%;">
+                            <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
+                            <span class="upload__label">Clique aqui para selecionar o arquivo</span>
+                        </label>
+                    </div>
                 </section>
     
                 <section class="campo__input">
@@ -96,13 +100,17 @@
                     </section>
                 </section>
 
-                <section class="identidade">
+                <section class="identidade area__envio" style="position: relative;">
                     <h2 class="label">Documento de identidade</h2>
-                    <input type="file" id="documento-identidade" name="documentoDeIdentidade" style="display: none" required>
-                    <label class="upload" for="documento-identidade">
-                        <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
-                        <span class="upload__label">Clique aqui para selecionar o arquivo</span>
-                    </label>
+                    <div class="upload__campo">
+                        <div class="upload__input">
+                            <input type="file" id="documento-identidade" name="documentoDeIdentidade" required>
+                        </div>
+                        <label class="upload" for="documento-identidade" style="width: 100%;">
+                            <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
+                            <span class="upload__label">Clique aqui para selecionar o arquivo</span>
+                        </label>
+                    </div>
                 </section>
             </section>
     
@@ -136,13 +144,17 @@
                     </section>
                 </section>
                 
-                <section class="comprovante">
+                <section class="comprovante area__envio" style="position: relative;">
                     <h2 class="label">Comprovante de residência</h2>
-                    <input type="file" id="comprovante" name="comprovanteResidencia" hidden>
-                    <label class="upload" for="comprovante">
-                        <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
-                        <span class="upload__label">Clique aqui para selecionar o arquivo</span>
-                    </label>
+                    <div class="upload__campo">
+                        <div class="upload__input">
+                            <input type="file" id="comprovante" name="comprovanteResidencia" required>
+                        </div>
+                        <label class="upload" for="comprovante" style="width: 100%;">
+                            <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
+                            <span class="upload__label">Clique aqui para selecionar o arquivo</span>
+                        </label>
+                    </div>
                 </section>
             </section>
     
