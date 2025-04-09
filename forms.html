@@ -13,6 +13,13 @@
 
 <body>
     <main>
+        <div class="alert">
+            <div class="alert__campo" id="alerta-campo">
+                <img class="alerta__icone" src="/media/icons/Informacao.svg" alt="Informação">
+                <span class="alert__texto" id="alerta-texto">Conta cadastrada.</span>
+            </div>
+        </div>
+
         <section class="home">
         <form class="formulario" id="formulario">
             <section class="introducao">
@@ -29,39 +36,43 @@
 
             <section class="informacoes">
                 <h1 class="titulo">Informações do participante</h1>
-                <section class="foto">
+                <section class="foto area__envio" style="position: relative;">
                     <h2 class="label">Foto do usuário</h2>
-                    <input type="file" id="foto-perfil" name="FotoDePerfil" hidden>
-                    <label class="upload" for="foto-perfil">
-                        <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
-                        <span class="upload__label">Clique aqui para selecionar o arquivo</span>
-                    </label>
+                    <div class="upload__campo">
+                        <div class="upload__input">
+                            <input type="file" id="foto-perfil" name="FotoDePerfil">
+                        </div>
+                        <label class="upload" for="foto-perfil" style="width: 100%;">
+                            <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
+                            <span class="upload__label">Clique aqui para selecionar o arquivo</span>
+                        </label>
+                    </div>
                 </section>
     
                 <section class="campo__input">
-                    <h2 class="label">Nome completo</h2>
-                    <input class="input" name="nomeCompleto" type="text" autocomplete="name">
+                    <h2 class="label">Nome completo</h2> <!-- inputNome[0] -->
+                    <input class="input campo-obrigatorio" name="nomeCompleto" type="text" autocomplete="name" required>
                 </section>
 
                 <section class="campo__input">
-                    <h2 class="label">Nome social</h2>
-                    <input class="input"name="nomeSocial" type="text" autocomplete="name">
+                    <h2 class="label">Nome social</h2> <!-- inputNome[1] -->
+                    <input class="input campo-obrigatorio" name="nomeSocial" type="text" autocomplete="name" required>
                 </section>
 
                 <section class="campo__input">
-                    <h2 class="label">Data de nascimento</h2>
-                    <input class="input" name="dataDeNascimento" inputmode="numeric" maxlength="10" placeholder="dd/mm/aaaa">
+                    <h2 class="label">Data de nascimento</h2> <!-- inputNome[2] -->
+                    <input class="input campo-obrigatorio" name="dataDeNascimento" inputmode="numeric" maxlength="10" placeholder="dd/mm/aaaa" required>
                 </section>
 
                 <section class="campo__input">
-                    <h2 class="label">CPF</h2>
-                    <input class="input" name="usuarioCPF" inputmode="numeric" maxlength="14" placeholder="000.000.000-00">
+                    <h2 class="label">CPF</h2> <!-- inputNome[3] -->
+                    <input class="input campo-obrigatorio" name="usuarioCPF" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" required>
                 </section>
 
                 <section class="campo__input">
-                    <h2 class="label">Sexo</h2>
-                    <select class="input" name="sexoDoUsuario">
-                        <option value="selecione" disabled selected>Selecione</option>
+                    <h2 class="label">Sexo</h2> <!-- inputNome[4] -->
+                    <select class="input campo-obrigatorio" name="sexoDoUsuario" required>
+                        <option value="" disabled selected hidden>Selecione</option>
                         <option value="masculino">Masculino</option>
                         <option value="feminino">Feminino</option>
                         <option value="naoBinario">Não-binário</option>
@@ -69,13 +80,13 @@
                 </section>
 
                 <section class="campo__input">
-                    <h2 class="label">E-mail</h2>
-                    <input class="input" name="emailDoUsuario" type="email" placeholder="exemplo@gmail.com">
+                    <h2 class="label">E-mail</h2> <!-- inputNome[5] -->
+                    <input class="input campo-obrigatorio" name="emailDoUsuario" type="email" placeholder="exemplo@gmail.com" required>
                 </section>
                 
                 <section class="campo__input">
-                    <h2 class="label">Telefone</h2>
-                    <input class="input" name="numeroDeTelefone" type="tel" inputmode="numeric" maxlength="15" placeholder="(00) 00000-0000">
+                    <h2 class="label">Telefone</h2> <!-- inputNome[6] -->
+                    <input class="input campo-obrigatorio" name="numeroDeTelefone" type="tel" inputmode="numeric" maxlength="15" placeholder="(00) 00000-0000" required>
                 </section>
                 
                 <section class="redes">
@@ -89,13 +100,17 @@
                     </section>
                 </section>
 
-                <section class="identidade">
+                <section class="identidade area__envio" style="position: relative;">
                     <h2 class="label">Documento de identidade</h2>
-                    <input type="file" id="documento-identidade" name="documentoDeIdentidade" hidden>
-                    <label class="upload" for="documento-identidade">
-                        <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
-                        <span class="upload__label">Clique aqui para selecionar o arquivo</span>
-                    </label>
+                    <div class="upload__campo">
+                        <div class="upload__input">
+                            <input type="file" id="documento-identidade" name="documentoDeIdentidade" required>
+                        </div>
+                        <label class="upload" for="documento-identidade" style="width: 100%;">
+                            <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
+                            <span class="upload__label">Clique aqui para selecionar o arquivo</span>
+                        </label>
+                    </div>
                 </section>
             </section>
     
@@ -129,13 +144,17 @@
                     </section>
                 </section>
                 
-                <section class="comprovante">
+                <section class="comprovante area__envio" style="position: relative;">
                     <h2 class="label">Comprovante de residência</h2>
-                    <input type="file" id="comprovante" name="comprovanteResidencia" hidden>
-                    <label class="upload" for="comprovante">
-                        <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
-                        <span class="upload__label">Clique aqui para selecionar o arquivo</span>
-                    </label>
+                    <div class="upload__campo">
+                        <div class="upload__input">
+                            <input type="file" id="comprovante" name="comprovanteResidencia" required>
+                        </div>
+                        <label class="upload" for="comprovante" style="width: 100%;">
+                            <img class="upload__icone" src="/media/icons/Upload.svg" alt="Upload">
+                            <span class="upload__label">Clique aqui para selecionar o arquivo</span>
+                        </label>
+                    </div>
                 </section>
             </section>
     
@@ -146,14 +165,14 @@
                     <h2 class="label">Selecione apenas uma trilha</h2>
                     <section class="trilhas__casal">
                         <section class="trilhas__bloco">
-                            <input class="input__radio" type="radio" id="front-end" name="TrilhaSelecionada">
+                            <input class="input__radio" type="radio" id="front-end" name="TrilhaSelecionada" required>
                             <label class="trilhas__conteudo" for="front-end">
                                 <img class="trilhas__icone" src="/media/icons/Frontend.svg" alt="Front-end">
                                 <span class="trilhas__label">Programação Front-end</span>
                             </label>
                         </section>
                         <section class="trilhas__bloco">
-                            <input class="input__radio" type="radio" id="back-end" name="TrilhaSelecionada">
+                            <input class="input__radio" type="radio" id="back-end" name="TrilhaSelecionada" required>
                             <label class="trilhas__conteudo" for="back-end">
                                 <img class="trilhas__icone" src="/media/icons/Backend.svg" alt="Back-end">
                                 <span class="trilhas__label">Programação Back-end</span>
@@ -163,14 +182,14 @@
 
                     <section class="trilhas__casal">
                         <section class="trilhas__bloco">
-                            <input class="input__radio" type="radio" id="jogos" name="TrilhaSelecionada">
+                            <input class="input__radio" type="radio" id="jogos" name="TrilhaSelecionada" required>
                             <label class="trilhas__conteudo" for="jogos">
                                 <img class="trilhas__icone" src="/media/icons/Jogos.svg" alt="Jogos">
                                 <span class="trilhas__label">Programação de Jogos</span>
                             </label>
                         </section>
                         <section class="trilhas__bloco">
-                            <input class="input__radio" type="radio" id="ux-design" name="TrilhaSelecionada">
+                            <input class="input__radio" type="radio" id="ux-design" name="TrilhaSelecionada" required>
                             <label class="trilhas__conteudo" for="ux-design">
                                 <img class="trilhas__icone" src="/media/icons/UX.svg" alt="UX Design">
                                 <span class="trilhas__label">Design e Experiência</span>
@@ -180,7 +199,7 @@
                     
                     <section class="trilhas__casal">
                         <section class="trilhas__bloco">
-                            <input class="input__radio" type="radio" id="dados" name="TrilhaSelecionada">
+                            <input class="input__radio" type="radio" id="dados" name="TrilhaSelecionada" required>
                             <label class="trilhas__conteudo" for="dados">
                                 <img class="trilhas__icone" src="/media/icons/Dados.svg" alt="Front-end">
                                 <span class="trilhas__label">Ciência de Dados</span>
@@ -191,14 +210,14 @@
             </section>
     
             <section class="termos__condicoes">
-                <input class="botao__checkbox" type="checkbox" name="termosECondicoes">
+                <input class="botao__checkbox" type="checkbox" name="termosECondicoes" required>
                 <span class="termos__condicoes-texto subtitulo">
                     Declaro que li e concordo com os <a class="destaque" href="">Termos e Condições</a>
                     e com a <a class="destaque" href="">Política de Privacidade</a>.
                 </span>
             </section>
 
-            <button class="botao__submit" type="submit">Fazer inscrição</button>
+            <button class="botao__submit" id="fazer-inscricao" type="submit">Fazer inscrição</button>
         </form>
     
         <section class="visuais">

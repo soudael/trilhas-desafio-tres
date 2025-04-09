@@ -184,10 +184,56 @@ function animarAlert() {
 }
 
 
+// Ativar erros semânticos
+function verificarEmail(email) {
+    const usuariosJSON = localStorage.getItem('usuarios');
+    if (!usuariosJSON) return false;
+
+    const usuarios = JSON.parse(usuariosJSON);
+    return usuarios.some(usuario => usuario.email === email);
+}
+
+function adicionarErroSemantico(input, mensagem) {
+    const labelPai = input.parentElement;
+
+    const erroIcone = document.createElement("img");
+    erroIcone.src = "/media/icons/Atencao.svg";
+    erroIcone.style.width = "1rem";
+
+    const erroSemantico = document.createElement("span");
+    erroSemantico.textContent = mensagem;
+    erroSemantico.style.fontSize = "1rem";
+    erroSemantico.style.color = "var(--cor-vermelha-erro)";
+    erroSemantico.style.fontWeight = 500;
+    erroSemantico.classList.add("erro-semantico");
+
+    const divTemporaria = document.createElement("div");
+    divTemporaria.appendChild(erroIcone);
+    divTemporaria.appendChild(erroSemantico);
+    divTemporaria.style.display = "flex";
+    divTemporaria.style.alignItems = "center";
+    divTemporaria.style.gap = "0.5rem";
+
+    if (!labelPai.querySelector(".erro-semantico")) {
+        labelPai.appendChild(divTemporaria);
+    }
+
+    input.style.borderColor = "var(--cor-vermelha-erro)";
+    input.addEventListener("input", () => {
+        const sumirErro = document.querySelector(".erro-semantico");
+        if (sumirErro) {
+            labelPai.removeChild(divTemporaria);
+        }
+        input.style.borderColor = "var(--cor-borda)";
+    });
+}
+
+
 // Cadastrar conta
 document.getElementById("cadastrar-conta").addEventListener("submit", function (event) {
     event.preventDefault();
-    const emailDigitado = document.getElementById("sign-email").value;
+    const email = document.getElementById("sign-email");
+    const emailDigitado = email.value;
     const senhaDigitada = document.getElementById("sign-senha").value;
 
     if (emailDigitado === "" || senhaDigitada === "") {
@@ -200,13 +246,24 @@ document.getElementById("cadastrar-conta").addEventListener("submit", function (
         animarAlert();
         return;
     }
+    if (verificarEmail(`${emailDigitado}`)) {
+        const signMensagem = "E-mail já cadastrado"
+        adicionarErroSemantico(email, signMensagem);
+        return;
+    }
 
-    const usuario = {
+    // Cadastra o usuário se as condições são favoráveis
+    const usuariosJSON = localStorage.getItem("usuarios");
+    const usuarios = usuariosJSON ? JSON.parse(usuariosJSON) : [];
+
+    const novoUsuario = {
         email: emailDigitado,
         senha: senhaDigitada,
     };
 
-    localStorage.setItem("usuarioCadastrado", JSON.stringify(usuario))
+    usuarios.push(novoUsuario);
+    localStorage.setItem("usuarios", JSON.stringify(usuarios)); // Salva lista atualizada
+
     alertaTexto.textContent = "Conta cadastrada com sucesso!";
     alerta.style.transform = "translateY(0)";
     animarAlert();
@@ -222,8 +279,10 @@ document.getElementById("cadastrar-conta").addEventListener("submit", function (
 document.getElementById("entrar-conta").addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const emailDigitado = document.getElementById("login-email").value;
-    const senhaDigitada = document.getElementById("login-senha").value;
+    const email = document.getElementById("login-email");
+    const emailDigitado = email.value;
+    const senha = document.getElementById("login-senha");
+    const senhaDigitada = senha.value;
 
     if (emailDigitado === "" || senhaDigitada === "") {
         alertaTexto.textContent = "Por favor, insira seu e-mail e senha.";
@@ -231,26 +290,25 @@ document.getElementById("entrar-conta").addEventListener("submit", function (eve
         return;
     }
 
-    const usuarioSalvo = JSON.parse(localStorage.getItem("usuarioCadastrado"));
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    if (usuarioSalvo && usuarioSalvo.email === emailDigitado && usuarioSalvo.senha === senhaDigitada) {
+    const usuarioEncontrado = usuarios.find(usuario =>
+        usuario.email === emailDigitado && usuario.senha === senhaDigitada
+    );
+
+    if (usuarioEncontrado) {
         window.location.href = "forms.html";
     } else {
         alertaTexto.textContent = "E-mail ou senha incorretos.";
         animarAlert();
+
+        const loginMensagem = "E-mail ou senha incorretos.";
+        adicionarErroSemantico(email, loginMensagem);
+        document.querySelector(".input__icone-borda").style.borderColor = "var(--cor-vermelha-erro)";
+        document.querySelector(".login__senha-input").addEventListener("input", () => {
+            document.querySelector(".input__icone-borda").style.borderColor = "var(--cor-borda)";
+            document.querySelector(".login__email-input").style.borderColor = "var(--cor-borda)";
+        });
+        return;
     }
 });
-
-
-// Ativar erros semânticos
-const inputErro = document.querySelectorAll(".input");
-function erroDeCampo (texto) {
-
-}
-
-let novoInput = document.createElement("input");
-novoInput.setAttribute("class", "input");
-
-
-
-secaoInputs.insertBefore(novoInput, botaoAdicionar);

@@ -401,7 +401,7 @@ button {
 
 /* Rodapé */
 .footer {
-    width: 100%;
+    width: 100vw;
     background-color: var(--cor-superficie-primaria);
     padding: 3.5rem;
 
