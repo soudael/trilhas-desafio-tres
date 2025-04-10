@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const telaLogin = document.querySelector('.tela__login');
     const telaCadastro = document.querySelector('.tela__sign');
   
-    // Ajusta altura (você já faz isso depois; pode mover pra cá se quiser)
     const alturaLog = `${telaLogin.offsetHeight / 16}rem`;
     document.documentElement.style.setProperty('--altura-tela-login', alturaLog);
   
@@ -19,11 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
-    // Escuta mudança de hash (voltar/avançar + links)
     window.addEventListener('hashchange', atualizarViewPorHash);
     atualizarViewPorHash();
   
-    // Botões internos passam o hash em vez de disparar sua lógica original
     document.querySelector('.login__botao-cadastrar')
       .addEventListener('click', () => { location.hash = 'cadastro'; });
     document.querySelector('.sign__botao-login')
